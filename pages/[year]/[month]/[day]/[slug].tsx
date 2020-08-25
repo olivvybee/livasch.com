@@ -1,6 +1,7 @@
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import moment from 'moment';
 
 interface PostUrlQuery {
   year: string;
@@ -38,10 +39,15 @@ export const getStaticProps: GetStaticProps<PostProps, PostUrlQuery> = async ({
   const config = await import(`../../../../siteconfig.json`);
   const data = matter(content.default);
 
+  const metadata = {
+    ...data.data,
+    date: !!data.data.date ? moment(data.data.date).toISOString() : undefined,
+  };
+
   return {
     props: {
       siteTitle: config.title,
-      metadata: data.data,
+      metadata,
       body: data.content,
     },
   };

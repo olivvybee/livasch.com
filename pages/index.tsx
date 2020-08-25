@@ -1,4 +1,6 @@
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
+import { useEffect } from 'react';
 
 interface IndexProps {
   title: string;
@@ -7,10 +9,18 @@ interface IndexProps {
 
 const Index = ({ title, description }: IndexProps) => {
   return (
-    <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </div>
+    <>
+      <Head>
+        <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
+      </Head>
+
+      <div>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
+
+      <script src='/scripts/netlify-identity.js'></script>
+    </>
   );
 };
 

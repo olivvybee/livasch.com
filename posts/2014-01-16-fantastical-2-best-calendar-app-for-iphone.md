@@ -4,7 +4,7 @@ date: 2014-01-16T17:00:00Z
 link: 'http://thesweetsetup.com/apps/best-calendar-app-iphone/'
 ---
 
-[Steven Owens, on The Sweet Setup](http://thesweetsetup.com/apps/best-calendar-app-iphone/):
+[Steven Owens, on The Sweet Setup](https://thesweetsetup.com/apps/best-calendar-app-iphone/):
 
 > It is the easiest to use (for adding/editing events) and the easiest to read
 > (for checking schedules) for most people. Fantastical’s natural language

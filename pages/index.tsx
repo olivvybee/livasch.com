@@ -13,25 +13,25 @@ const Index = () => {
         <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
       </Head>
 
-      <PageTemplate>Hello!</PageTemplate>
-
-      <Row gridGap={16}>
-        {Object.entries(theme.colours).map(([name, colour]) => (
-          <div
-            key={name}
-            style={{
-              width: 50,
-              height: 50,
-              backgroundColor: colour,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: theme.colours.background,
-            }}>
-            A
-          </div>
-        ))}
-      </Row>
+      <PageTemplate>
+        <Row gridGap={16}>
+          {Object.entries(theme.colours).map(([name, colour]) => (
+            <div
+              key={name}
+              style={{
+                width: 50,
+                height: 50,
+                backgroundColor: colour,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: theme.colours.background,
+              }}>
+              A
+            </div>
+          ))}
+        </Row>
+      </PageTemplate>
 
       <script src='/scripts/netlify-identity.js'></script>
     </>

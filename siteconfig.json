@@ -1,4 +1,6 @@
 {
   "title": "Demo Blog",
-  "description": "This is a simple blog built with Next!"
+  "description": "This is a simple blog built with Next!",
+  "author": "Liv Asch",
+  "copyrightStart": "2010"
 }

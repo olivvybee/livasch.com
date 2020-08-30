@@ -1,10 +1,17 @@
 import React from 'react';
+import {
+  faUser,
+  faCode,
+  faArchive,
+  faListUl,
+} from '@fortawesome/free-solid-svg-icons';
 
 import siteConfig from '../siteconfig.json';
 
 import { styled } from './Theming';
 import Link from './Link';
 import { Row, FlexibleSpacer } from './Layout';
+import IconLink from './IconLink';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
@@ -40,10 +47,16 @@ const Header = () => (
 
         <FlexibleSpacer />
 
-        <Row gridGap={24}>
-          <Link href='/about'>About</Link>
-          <Link href='/projects'>Projects</Link>
-          <Link href='/archive'>Archive</Link>
+        <Row gridGap={32}>
+          <IconLink href='/about' icon={faUser} gridGap={8}>
+            About
+          </IconLink>
+          <IconLink href='/projects' icon={faCode} gridGap={8}>
+            Projects
+          </IconLink>
+          <IconLink href='/archive' icon={faListUl} gridGap={8}>
+            Archive
+          </IconLink>
         </Row>
       </Row>
     </HeaderContent>

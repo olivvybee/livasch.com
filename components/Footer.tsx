@@ -9,6 +9,7 @@ import { styled } from './Theming';
 import Link from './Link';
 import { Row, FlexibleSpacer, Spacer } from './Layout';
 import BackToTopButton from './BackToTopButton';
+import IconLink from './IconLink';
 
 const FooterWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
@@ -38,21 +39,13 @@ const Footer = () => {
           <FlexibleSpacer />
 
           <Row gridGap={24}>
-            <Link href='/rss'>
-              <Row alignItems='center'>
-                <FontAwesomeIcon icon={faRss} />
-                <Spacer width={4} />
-                RSS
-              </Row>
-            </Link>
+            <IconLink href='/rss' icon={faRss}>
+              RSS
+            </IconLink>
 
-            <a href='https://twitter.com/bearhat_posts'>
-              <Row alignItems='center'>
-                <FontAwesomeIcon icon={faTwitter} />
-                <Spacer width={4} />
-                @bearhat_posts
-              </Row>
-            </a>
+            <IconLink href='https://twitter.com/bearhat_posts' icon={faTwitter}>
+              @bearhat_posts
+            </IconLink>
 
             <BackToTopButton />
           </Row>

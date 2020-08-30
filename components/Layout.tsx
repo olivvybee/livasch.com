@@ -30,7 +30,7 @@ const FlexContainer = styled('div')<FlexContainerProps>(
       justifyContent,
       alignItems,
       flexWrap,
-      marginBottom: -wrapSpacing,
+      marginBottom: !!wrapSpacing ? -wrapSpacing : undefined,
 
       '& > *': {
         marginBottom: wrapSpacing,

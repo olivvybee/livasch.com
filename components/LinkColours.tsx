@@ -21,12 +21,12 @@ export const linkColoursContext = createContext<LinkColoursContextShape>({
 linkColoursContext.displayName = 'linkColoursContext';
 
 const LinkColoursContextProvider: React.FC = ({ children }) => {
-  const [values, setValues] = useState<LinkColoursContextShape>({
-    colour: 'white',
-    hoverColour: 'white',
-  });
-
   const theme = useTheme();
+
+  const [values, setValues] = useState<LinkColoursContextShape>({
+    colour: theme.colours.background,
+    hoverColour: theme.colours.background,
+  });
 
   useEffect(() => {
     const colours = POSSIBLE_COLOURS.map((key) => theme.colours[key]);

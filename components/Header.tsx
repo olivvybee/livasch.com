@@ -8,11 +8,14 @@ import { Row, FlexibleSpacer } from './Layout';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
-  borderBottom: `1px solid ${theme.colours.separator}`,
   padding: 16,
 
   a: {
     textDecoration: 'none',
+    color: theme.colours.text,
+  },
+  'a:hover': {
+    textDecoration: 'underline',
   },
 }));
 HeaderWrapper.displayName = 'HeaderWrapper';
@@ -31,6 +34,7 @@ const Header = () => (
           <Row gridGap={12} alignItems='center'>
             <div
               style={{
+                color: 'black',
                 backgroundColor: 'aquamarine',
                 height: 32,
                 width: 32,

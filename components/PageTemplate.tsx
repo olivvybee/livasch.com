@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import siteConfig from '../siteconfig.json';
 
+import Header from './Header';
 import GlobalStyles from './GlobalStyles';
 
 interface PageTemplateProps {
@@ -21,9 +22,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children, title }) => {
       </Head>
       <GlobalStyles />
 
-      <header>
-        <h1>Liv Asch</h1>
-      </header>
+      <Header />
       <main>{children}</main>
       <footer>Footer</footer>
     </>

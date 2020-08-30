@@ -6,23 +6,37 @@ interface FlexContainerProps {
   gridGap?: number;
   justifyContent?: CSSProperties['justifyContent'];
   alignItems?: CSSProperties['alignItems'];
+  flexWrap?: CSSProperties['flexWrap'];
+  wrapSpacing?: number;
 }
 
 const FlexContainer = styled('div')<FlexContainerProps>(
-  ({ flexDirection, gridGap, justifyContent, alignItems }) => {
-    const marginProp =
+  ({
+    flexDirection,
+    gridGap,
+    justifyContent,
+    alignItems,
+    flexWrap,
+    wrapSpacing,
+  }) => {
+    const gridGapProp =
       flexDirection === 'column' || flexDirection === 'column-reverse'
-        ? 'marginBottom'
-        : 'marginRight';
+        ? { marginBottom: gridGap }
+        : { marginRight: gridGap };
 
     return {
       display: 'flex',
       flexDirection,
       justifyContent,
       alignItems,
+      flexWrap,
+      marginBottom: -wrapSpacing,
 
       '& > *': {
-        [marginProp]: gridGap,
+        marginBottom: wrapSpacing,
+      },
+      '& > *:not(:last-child)': {
+        ...gridGapProp,
       },
     };
   }
@@ -41,3 +55,19 @@ Column.displayName = 'Column';
 Column.defaultProps = {
   flexDirection: 'column',
 };
+
+interface SpacerProps {
+  width?: CSSProperties['width'];
+  height?: CSSProperties['height'];
+}
+
+export const Spacer = styled('div')<SpacerProps>(({ width, height }) => ({
+  width,
+  height,
+}));
+Spacer.displayName = 'Spacer';
+
+export const FlexibleSpacer = styled('div')({
+  flex: 1,
+});
+FlexibleSpacer.displayName = 'FlexibleSpacer';

@@ -1,11 +1,14 @@
 import { AppProps } from 'next/app';
 
 import { ThemeProvider } from '../components/Theming';
+import LinkColoursContextProvider from '../components/LinkColours';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <Component {...pageProps} />
+      <LinkColoursContextProvider>
+        <Component {...pageProps} />
+      </LinkColoursContextProvider>
     </ThemeProvider>
   );
 }

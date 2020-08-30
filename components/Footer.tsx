@@ -13,12 +13,6 @@ import BackToTopButton from './BackToTopButton';
 const FooterWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
   padding: 16,
-  a: {
-    color: theme.colours.text,
-  },
-  'a:hover': {
-    textDecoration: 'none',
-  },
 }));
 FooterWrapper.displayName = 'FooterWrapper';
 

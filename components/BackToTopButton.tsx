@@ -1,28 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useMedia } from 'react-media';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 import { styled } from './Theming';
 import { Row } from './Layout';
+import { linkColoursContext } from './LinkColours';
 
-const BackToTopStyledButton = styled('button')(({ theme }) => ({
-  background: 'none',
-  border: 'none',
-  fontSize: 'inherit',
-  color: theme.colours.text,
-  cursor: 'pointer',
-  textDecoration: 'underline',
-  ':hover': {
+interface BackToTopStyledButtonProps {
+  color: string;
+  hoverColor: string;
+}
+
+const BackToTopStyledButton = styled('button')<BackToTopStyledButtonProps>(
+  ({ color, hoverColor }) => ({
+    background: 'none',
+    color,
+    border: 'none',
+    fontSize: 'inherit',
+    cursor: 'pointer',
     textDecoration: 'none',
-  },
-}));
+    transition: 'color 0.2s',
+    ':hover': {
+      color: hoverColor,
+      textDecoration: 'underline',
+    },
+  })
+);
 BackToTopStyledButton.displayName = 'BackToTopStyledButton';
 
 const BackToTopButton = () => {
   const useReducedMotion = useMedia({
     query: '(prefers-reduced-motion: reduce)',
   });
+
+  const { colour, hoverColour } = useContext(linkColoursContext);
 
   const onClick = () => {
     window.scrollTo({
@@ -33,7 +45,11 @@ const BackToTopButton = () => {
   };
 
   return (
-    <BackToTopStyledButton type='button' onClick={onClick}>
+    <BackToTopStyledButton
+      type='button'
+      onClick={onClick}
+      color={colour}
+      hoverColor={hoverColour}>
       <Row gridGap={4} alignItems='center'>
         <FontAwesomeIcon icon={faArrowUp} aria-hidden={true} />
         <span>Back to top</span>

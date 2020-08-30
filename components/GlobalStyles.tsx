@@ -1,8 +1,11 @@
 import { Global, css } from '@emotion/core';
 import { useTheme } from './Theming';
+import { useContext } from 'react';
+import { linkColoursContext } from './LinkColours';
 
 const GlobalStyles = () => {
   const theme = useTheme();
+  const { colour, hoverColour } = useContext(linkColoursContext);
 
   const styles = css({
     '*': {
@@ -17,6 +20,15 @@ const GlobalStyles = () => {
       backgroundColor: theme.colours.background,
       color: theme.colours.text,
       fontFamily: theme.fontFamily,
+    },
+    a: {
+      color: colour,
+      textDecoration: 'none',
+      transition: 'color 0.2s',
+    },
+    'a:hover': {
+      color: hoverColour,
+      textDecoration: 'underline',
     },
   });
 

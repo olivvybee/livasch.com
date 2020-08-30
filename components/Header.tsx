@@ -9,14 +9,6 @@ import { Row, FlexibleSpacer } from './Layout';
 const HeaderWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
   padding: 16,
-
-  a: {
-    textDecoration: 'none',
-    color: theme.colours.text,
-  },
-  'a:hover': {
-    textDecoration: 'underline',
-  },
 }));
 HeaderWrapper.displayName = 'HeaderWrapper';
 

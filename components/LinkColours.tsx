@@ -37,8 +37,6 @@ const LinkColoursContextProvider: React.FC = ({ children }) => {
     setValues({ colour, hoverColour });
   }, [setValues]);
 
-  console.log(values);
-
   return (
     <linkColoursContext.Provider value={values}>
       {children}

@@ -1,23 +1,37 @@
-import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
 
-interface IndexProps {
-  title: string;
-  description: string;
-}
+import PageTemplate from '../components/PageTemplate';
+import { Row } from '../components/Layout';
+import { useTheme } from '../components/Theming';
 
-const Index = ({ title, description }: IndexProps) => {
+const Index = () => {
+  const theme = useTheme();
+
   return (
     <>
       <Head>
         <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
       </Head>
 
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
+      <PageTemplate>Hello!</PageTemplate>
+
+      <Row gridGap={16}>
+        {Object.entries(theme.colours).map(([name, colour]) => (
+          <div
+            key={name}
+            style={{
+              width: 50,
+              height: 50,
+              backgroundColor: colour,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: theme.colours.background,
+            }}>
+            A
+          </div>
+        ))}
+      </Row>
 
       <script src='/scripts/netlify-identity.js'></script>
     </>
@@ -25,14 +39,3 @@ const Index = ({ title, description }: IndexProps) => {
 };
 
 export default Index;
-
-export const getStaticProps: GetStaticProps<IndexProps> = async () => {
-  const configData = await import(`../siteconfig.json`);
-
-  return {
-    props: {
-      title: configData.default.title,
-      description: configData.default.description,
-    },
-  };
-};

@@ -1,0 +1,15 @@
+{
+  "colours": {
+    "background": "#161c27",
+    "backgroundAccent": "#0a0b10",
+    "text": "#c4cdde",
+    "separator": "#a4b2cc",
+    "red": "#e7504b",
+    "orange": "#ed9456",
+    "yellow": "#e4c15c",
+    "green": "#6bb58b",
+    "blue": "#60b1dd",
+    "purple": "#8b73ed"
+  },
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif"
+}

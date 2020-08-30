@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
@@ -43,8 +42,10 @@ const Footer = () => {
               RSS
             </IconLink>
 
-            <IconLink href='https://twitter.com/bearhat_posts' icon={faTwitter}>
-              @bearhat_posts
+            <IconLink
+              href={`https://twitter.com/${siteConfig.siteTwitter}`}
+              icon={faTwitter}>
+              @{siteConfig.siteTwitter}
             </IconLink>
 
             <BackToTopButton />

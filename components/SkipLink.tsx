@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { styled } from './Theming';
+import IconLink from './IconLink';
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 
 const SkipLinkWrapper = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -10,7 +12,10 @@ const SkipLinkWrapper = styled('div')(({ theme }) => ({
   padding: 12,
   backgroundColor: theme.colours.background,
   border: `1px solid ${theme.colours.separator}`,
-  transition: 'top 0.25s',
+
+  '@media not all and (prefers-reduced-motion: reduce)': {
+    transition: 'top 0.25s',
+  },
 
   ':focus-within': {
     top: 8,
@@ -23,7 +28,9 @@ const SkipLinkWrapper = styled('div')(({ theme }) => ({
 
 const SkipLink = () => (
   <SkipLinkWrapper>
-    <a href='#main-content'>Skip to content</a>
+    <IconLink href='#main-content' icon={faAngleDoubleDown} gridGap={8}>
+      Skip to content
+    </IconLink>
   </SkipLinkWrapper>
 );
 

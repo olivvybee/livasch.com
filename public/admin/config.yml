@@ -20,3 +20,12 @@ collections:
       - {label: "Tags", name: "tags", widget: "list", required: false}
       - {label: "Link", name: "link", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "page"
+    label: "Page"
+    folder: "pageContent"
+    preview_path: "{{title}}"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

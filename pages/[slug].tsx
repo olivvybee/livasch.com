@@ -3,6 +3,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
+import PageTemplate from '../components/PageTemplate';
+import ContactLinks from '../components/ContactLinks';
+
 interface PageUrlQuery {
   slug: string;
   [key: string]: string;
@@ -15,11 +18,16 @@ interface PageProps {
     name: string;
     url: string;
     icon: string;
+    colour: string;
   }[];
 }
 
 const Page = ({ title, body, contactLinks }: PageProps) => (
-  <ReactMarkdown source={body} />
+  <PageTemplate title={title}>
+    <ReactMarkdown source={body} />
+
+    {contactLinks.length && <ContactLinks links={contactLinks} />}
+  </PageTemplate>
 );
 
 export const getStaticProps: GetStaticProps<PageProps, PageUrlQuery> = async ({
@@ -36,6 +44,7 @@ export const getStaticProps: GetStaticProps<PageProps, PageUrlQuery> = async ({
       title: data.data.title,
       body: data.content,
       contactLinks: data.data.contactLinks || [],
+      colour: data.data.colour || '',
     },
   };
 };

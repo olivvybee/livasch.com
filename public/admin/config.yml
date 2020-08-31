@@ -30,7 +30,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
       - label: "Contact links"
-        name: "contact-links"
+        name: "contactLinks"
         widget: "list"
         required: false
         label_singular: "Contact link"
@@ -38,3 +38,4 @@ collections:
           - {label: "Name", name: "name", widget: "string"}
           - {label: "URL", name: "url", widget: "string"}
           - {label: "Icon", name: "icon", widget: "string", default: "fas-link"}
+          - {label: "Colour", name: "colour", widget: "string"}

@@ -4,10 +4,12 @@ import Head from 'next/head';
 import siteConfig from '../siteconfig.json';
 
 import Header from './Header';
+import Main from './Main';
 import Footer from './Footer';
 import GlobalStyles from './GlobalStyles';
 import { Column, FlexibleSpacer } from './Layout';
 import { styled } from './Theming';
+import SkipLink from './SkipLink';
 
 const PageContainer = styled(Column)({
   minHeight: '100vh',
@@ -30,9 +32,10 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children, title }) => {
       </Head>
       <GlobalStyles />
 
+      <SkipLink />
       <PageContainer>
         <Header />
-        <main>{children}</main>
+        <Main id='main-content'>{children}</Main>
         <FlexibleSpacer />
         <Footer />
       </PageContainer>

@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-  faUser,
-  faCode,
-  faArchive,
-  faListUl,
-} from '@fortawesome/free-solid-svg-icons';
 
 import siteConfig from '../siteconfig.json';
 
@@ -48,13 +42,13 @@ const Header = () => (
         <FlexibleSpacer />
 
         <Row gridGap={32}>
-          <IconLink href='/about' icon={faUser} gridGap={8}>
+          <IconLink href='/about' icon='user' gridGap={8}>
             About
           </IconLink>
-          <IconLink href='/projects' icon={faCode} gridGap={8}>
+          <IconLink href='/projects' icon='code' gridGap={8}>
             Projects
           </IconLink>
-          <IconLink href='/archive' icon={faListUl} gridGap={8}>
+          <IconLink href='/archive' icon='list-ul' gridGap={8}>
             Archive
           </IconLink>
         </Row>

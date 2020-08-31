@@ -1,13 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { LinkProps } from 'next/link';
 
 import Link from './Link';
 import { Row } from './Layout';
 
 interface IconLinkProps extends LinkProps {
-  icon: IconDefinition;
+  icon: IconProp;
   gridGap?: number;
 }
 

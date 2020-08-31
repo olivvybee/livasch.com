@@ -1,6 +1,4 @@
 import React from 'react';
-import { faRss } from '@fortawesome/free-solid-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import siteConfig from '../siteconfig.json';
 
@@ -38,13 +36,13 @@ const Footer = () => {
           <FlexibleSpacer />
 
           <Row gridGap={24}>
-            <IconLink href='/rss' icon={faRss}>
+            <IconLink href='/rss' icon='rss'>
               RSS
             </IconLink>
 
             <IconLink
               href={`https://twitter.com/${siteConfig.siteTwitter}`}
-              icon={faTwitter}>
+              icon={['fab', 'twitter']}>
               @{siteConfig.siteTwitter}
             </IconLink>
 

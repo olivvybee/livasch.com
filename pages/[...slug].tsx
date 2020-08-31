@@ -4,11 +4,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import moment from 'moment';
 
 interface PostUrlQuery {
-  year: string;
-  month: string;
-  day: string;
-  slug: string;
-  [key: string]: string;
+  slug: string[];
+  [key: string]: string | string[];
 }
 
 interface PostProps {
@@ -31,12 +28,12 @@ export default Post;
 export const getStaticProps: GetStaticProps<PostProps, PostUrlQuery> = async ({
   ...ctx
 }) => {
-  const { year, month, day, slug } = ctx.params;
+  const { slug: fullUrl } = ctx.params;
 
-  const content = await import(
-    `../../../../posts/${year}-${month}-${day}-${slug}.md`
-  );
-  const config = await import(`../../../../siteconfig.json`);
+  const [year, month, day, slug] = fullUrl;
+
+  const content = await import(`../posts/${year}-${month}-${day}-${slug}.md`);
+  const config = await import(`../siteconfig.json`);
   const data = matter(content.default);
 
   const metadata = {
@@ -65,8 +62,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       return `${datePortion.join('/')}/${namePortion.join('-')}`;
     });
     return data;
-  })(require.context('../../../../posts', true, /\.md$/));
+  })(require.context('../posts', true, /\.md$/));
 
+  console.log(slugs);
   const paths = slugs.map((slug) => `/${slug}`);
 
   return {

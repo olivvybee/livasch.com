@@ -41,7 +41,7 @@ const Header = () => (
 
         <FlexibleSpacer />
 
-        <Row gridGap={32}>
+        <Row gridGap={24}>
           <IconLink href='/about' icon='user' gridGap={8}>
             About
           </IconLink>

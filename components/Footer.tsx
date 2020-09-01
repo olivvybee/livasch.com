@@ -27,13 +27,16 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <FooterContent>
-        <Row gridGap={16} alignItems='center' flexWrap='wrap' wrapSpacing={8}>
+        <Row
+          gridGap={24}
+          justifyContent='space-between'
+          alignItems='center'
+          flexWrap='wrap'
+          wrapSpacing={8}>
           <span>
             © {siteConfig.copyrightStart}–{year}{' '}
             <Link href='/about'>{siteConfig.author}</Link>
           </span>
-
-          <FlexibleSpacer />
 
           <Row gridGap={24}>
             <IconLink href='/rss' icon='rss'>
@@ -45,9 +48,9 @@ const Footer = () => {
               icon={['fab', 'twitter']}>
               @{siteConfig.siteTwitter}
             </IconLink>
-
-            <BackToTopButton />
           </Row>
+
+          <BackToTopButton />
         </Row>
       </FooterContent>
     </FooterWrapper>

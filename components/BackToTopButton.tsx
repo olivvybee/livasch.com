@@ -21,6 +21,7 @@ const BackToTopStyledButton = styled('button')<BackToTopStyledButtonProps>(
     cursor: 'pointer',
     textDecoration: 'none',
     transition: 'color 0.2s',
+    textAlign: 'start',
     ':hover': {
       color: hoverColor,
       textDecoration: 'underline',
@@ -50,7 +51,7 @@ const BackToTopButton = () => {
       onClick={onClick}
       color={colour}
       hoverColor={hoverColour}>
-      <Row gridGap={4} alignItems='center'>
+      <Row gridGap={4} alignItems='flex-start'>
         <FontAwesomeIcon icon={faArrowUp} aria-hidden={true} />
         <span>Back to top</span>
       </Row>

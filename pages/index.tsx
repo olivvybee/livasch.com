@@ -1,41 +1,42 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import _sortBy from 'lodash/sortBy';
 
 import PageTemplate from '../components/PageTemplate';
-import { Row } from '../components/Layout';
-import { useTheme } from '../components/Theming';
+import PostList from '../components/PostList';
+import { Post } from '../interfaces';
+import siteConfig from '../siteconfig.json';
+import { getAllPosts } from '../utils/getAllPosts';
 
-const Index = () => {
-  const theme = useTheme();
+interface IndexProps {
+  posts: Post[];
+}
 
-  return (
-    <>
-      <Head>
-        <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
-      </Head>
+const Index: React.FC<IndexProps> = ({ posts }) => (
+  <>
+    <Head>
+      <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
+    </Head>
 
-      <PageTemplate>
-        <Row gridGap={16}>
-          {Object.entries(theme.colours).map(([name, colour]) => (
-            <div
-              key={name}
-              style={{
-                width: 50,
-                height: 50,
-                backgroundColor: colour,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: theme.colours.background,
-              }}>
-              A
-            </div>
-          ))}
-        </Row>
-      </PageTemplate>
+    <PageTemplate>
+      <PostList posts={posts} />
+    </PageTemplate>
 
-      <script src='/scripts/netlify-identity.js'></script>
-    </>
-  );
-};
+    <script src='/scripts/netlify-identity.js'></script>
+  </>
+);
 
 export default Index;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getAllPosts();
+  const filteredPosts = _sortBy(posts, 'date')
+    .reverse()
+    .slice(0, siteConfig.paginationLength);
+
+  return {
+    props: {
+      posts: filteredPosts,
+    },
+  };
+};

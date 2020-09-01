@@ -17,12 +17,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "emotion-theming": "^10.0.27",
+    "lodash": "^4.17.20",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-media": "^2.0.0-rc.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.161",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.46",
     "@types/webpack-env": "^1.15.2",

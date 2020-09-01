@@ -3,5 +3,6 @@
   "description": "This is a simple blog built with Next!",
   "author": "Liv Asch",
   "copyrightStart": "2010",
-  "siteTwitter": "livasch_blog"
+  "siteTwitter": "livasch_blog",
+  "paginationLength": 5
 }

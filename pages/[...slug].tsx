@@ -1,31 +1,22 @@
-import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import moment from 'moment';
+
+import { Post } from '../interfaces';
+import { parsePostContent } from '../utils/parsePostContent';
+import { getAllPosts } from '../utils/getAllPosts';
 
 interface PostUrlQuery {
   slug: string[];
   [key: string]: string | string[];
 }
 
-interface PostProps {
-  body: string;
-  metadata: {
-    [key: string]: string;
-  };
-}
-
-const Post = ({ body, metadata }: PostProps) => {
-  if (!metadata) {
-    return null;
-  }
-
+const PostPage = ({ title, date, tags, body }: Post) => {
   return <ReactMarkdown source={body} />;
 };
 
-export default Post;
+export default PostPage;
 
-export const getStaticProps: GetStaticProps<PostProps, PostUrlQuery> = async ({
+export const getStaticProps: GetStaticProps<Post, PostUrlQuery> = async ({
   ...ctx
 }) => {
   const { slug: fullUrl } = ctx.params;
@@ -33,39 +24,19 @@ export const getStaticProps: GetStaticProps<PostProps, PostUrlQuery> = async ({
   const [year, month, day, slug] = fullUrl;
 
   const content = await import(`../posts/${year}-${month}-${day}-${slug}.md`);
-  const config = await import(`../siteconfig.json`);
-  const data = matter(content.default);
 
-  const metadata = {
-    ...data.data,
-    date: !!data.data.date ? moment(data.data.date).toISOString() : undefined,
-  };
+  const post = parsePostContent(content);
 
   return {
     props: {
-      siteTitle: config.title,
-      metadata,
-      body: data.content,
+      ...post,
+      url: `/${year}/${month}/${day}/${slug}`,
     },
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = ((context) => {
-    const keys = context.keys();
-    const data = keys.map((key) => {
-      const slug = key.replace(/^.*[\\\/]/, '').slice(0, -3);
-
-      const datePortion = slug.split('-').slice(0, 3);
-      const namePortion = slug.split('-').slice(3);
-
-      return `${datePortion.join('/')}/${namePortion.join('-')}`;
-    });
-    return data;
-  })(require.context('../posts', true, /\.md$/));
-
-  console.log(slugs);
-  const paths = slugs.map((slug) => `/${slug}`);
+  const paths = getAllPosts().map((post) => post.url);
 
   return {
     paths,

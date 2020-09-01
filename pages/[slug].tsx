@@ -1,10 +1,11 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 
 import PageTemplate from '../components/PageTemplate';
 import ContactLinks from '../components/ContactLinks';
+import { parsePageContent } from '../utils/parsePageContent';
+import { getAllPages } from '../utils/getAllPages';
 
 interface PageUrlQuery {
   slug: string;
@@ -30,6 +31,8 @@ const Page = ({ title, body, contactLinks }: PageProps) => (
   </PageTemplate>
 );
 
+export default Page;
+
 export const getStaticProps: GetStaticProps<PageProps, PageUrlQuery> = async ({
   ...ctx
 }) => {
@@ -37,14 +40,11 @@ export const getStaticProps: GetStaticProps<PageProps, PageUrlQuery> = async ({
 
   const content = await import(`../pageContent/${slug}.md`);
 
-  const data = matter(content.default);
+  const page = parsePageContent(content, slug);
 
   return {
     props: {
-      title: data.data.title,
-      body: data.content,
-      contactLinks: data.data.contactLinks || [],
-      colour: data.data.colour || '',
+      ...page,
     },
   };
 };
@@ -58,12 +58,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     return data;
   })(require.context('../pageContent', true, /\.md$/));
 
-  const paths = slugs.map((slug) => `/${slug}`);
+  const paths = getAllPages().map((page) => page.url);
 
   return {
     paths,
     fallback: false,
   };
 };
-
-export default Page;

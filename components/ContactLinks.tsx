@@ -19,47 +19,62 @@ interface ContactLinksProps {
 const Ul = styled(Row)({
   listStyleType: 'none',
 });
+Ul.displayName = 'Ul';
 
-interface ContactLinkElementProps {
+const ContactLinkAnchor = styled('a')(({ theme }) => ({
+  color: theme.colours.text,
+
+  ':hover': {
+    color: theme.colours.text,
+    textDecoration: 'none',
+  },
+}));
+ContactLinkAnchor.displayName = 'ContactLinkAnchor';
+
+interface ContactLinkIconProps {
   hoverColour: string;
 }
 
-const ContactLinkElement = styled('a')<ContactLinkElementProps>(
+const ContactLinkIcon = styled('div')<ContactLinkIconProps>(
   ({ theme, hoverColour }) => ({
+    width: 64,
+    height: 64,
+    borderRadius: '50%',
+    border: `2px solid ${theme.colours.text}`,
     color: theme.colours.text,
-
-    svg: {
-      transition: 'color 0.2s',
-    },
-
+    backgroundColor: theme.colours.background,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    transition: 'border-color 0.2s, background-color 0.2s',
     ':hover': {
-      color: theme.colours.text,
-
-      svg: {
-        color: hoverColour,
-      },
+      border: `2px solid ${hoverColour}`,
+      backgroundColor: hoverColour,
     },
   })
 );
+ContactLinkIcon.displayName = 'ContactLinkIcon';
 
 const ContactLinks: React.FC<ContactLinksProps> = ({ links }) => (
   <Column gridGap={24}>
     <h3>Places to find me</h3>
-    <Ul role='list' gridGap={48} flexWrap='wrap' wrapSpacing={8}>
+    <Ul role='list' gridGap={32} flexWrap='wrap' wrapSpacing={8}>
       {links.map(({ name, url, icon, colour }) => (
         <li key={name}>
-          <ContactLinkElement href={url} target='_blank' hoverColour={colour}>
+          <ContactLinkAnchor href={url} target='_blank'>
             <Column
               alignItems='center'
-              css={{ maxWidth: 48, textAlign: 'center' }}>
-              <FontAwesomeIcon
-                icon={icon.split('-') as [IconPrefix, IconName]}
-                size='3x'
-              />
+              css={{ maxWidth: 64, textAlign: 'center' }}>
+              <ContactLinkIcon hoverColour={colour}>
+                <FontAwesomeIcon
+                  icon={icon.split('-') as [IconPrefix, IconName]}
+                  size='2x'
+                />
+              </ContactLinkIcon>
               <Spacer height={8} />
               {name}
             </Column>
-          </ContactLinkElement>
+          </ContactLinkAnchor>
         </li>
       ))}
     </Ul>

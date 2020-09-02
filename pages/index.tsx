@@ -9,6 +9,7 @@ import siteConfig from '../siteconfig.json';
 import { getAllPosts } from '../utils/getAllPosts';
 import { Column } from '../components/Layout';
 import Pagination from '../components/Pagination';
+import ScreenReaderOnly from '../components/ScreenReaderOnly';
 
 interface IndexProps {
   posts: Post[];
@@ -22,6 +23,9 @@ const Index: React.FC<IndexProps> = ({ posts, hasOlderPosts }) => (
     </Head>
 
     <PageTemplate>
+      <ScreenReaderOnly>
+        <h1>{siteConfig.title}</h1>
+      </ScreenReaderOnly>
       <Column>
         <PostList posts={posts} />
         <Pagination olderPostsPageNumber={hasOlderPosts ? 2 : undefined} />

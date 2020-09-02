@@ -35,7 +35,9 @@ const Header = () => (
               }}>
               Logo
             </div>
-            <h1>{siteConfig.title}</h1>
+            <span css={{ fontSize: '2rem', fontWeight: 'bold' }}>
+              {siteConfig.title}
+            </span>
           </Row>
         </Link>
 

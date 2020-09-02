@@ -35,7 +35,9 @@ const Footer = () => {
           wrapSpacing={8}>
           <span>
             © {siteConfig.copyrightStart}–{year}{' '}
-            <Link href='/about'>{siteConfig.author}</Link>
+            <Link href='/[slug]' as='/about'>
+              {siteConfig.author}
+            </Link>
           </span>
 
           <Row gridGap={24}>

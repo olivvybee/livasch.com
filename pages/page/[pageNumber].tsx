@@ -8,6 +8,7 @@ import { Column, Row } from '../../components/Layout';
 import { getAllPosts } from '../../utils/getAllPosts';
 import siteConfig from '../../siteconfig.json';
 import PageTemplate from '../../components/PageTemplate';
+import Pagination from '../../components/Pagination';
 
 interface PaginatedPostListQuery {
   pageNumber: string;
@@ -16,12 +17,14 @@ interface PaginatedPostListQuery {
 
 interface PaginatedPostListProps {
   posts: Post[];
+  pageNumber: number;
   hasNewerPosts: boolean;
   hasOlderPosts: boolean;
 }
 
 const PaginatedPostList: React.FC<PaginatedPostListProps> = ({
   posts,
+  pageNumber,
   hasNewerPosts,
   hasOlderPosts,
 }) => (
@@ -29,10 +32,10 @@ const PaginatedPostList: React.FC<PaginatedPostListProps> = ({
     <Column gridGap={32}>
       <PostList posts={posts} />
 
-      <Row gridGap={16}>
-        {hasNewerPosts && <span>Newer posts...</span>}
-        {hasOlderPosts && <span>Older posts...</span>}
-      </Row>
+      <Pagination
+        newerPostsPageNumber={hasNewerPosts ? pageNumber - 1 : undefined}
+        olderPostsPageNumber={hasOlderPosts ? pageNumber + 1 : undefined}
+      />
     </Column>
   </PageTemplate>
 );
@@ -61,6 +64,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       posts: filteredPosts,
+      pageNumber,
       hasNewerPosts,
       hasOlderPosts,
     },

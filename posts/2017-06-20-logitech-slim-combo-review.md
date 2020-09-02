@@ -41,7 +41,7 @@ including a Home button, access to Spotlight, and volume controls (still no
 escape key though). A lot of people will prefer the feel of the real moving
 plastic keys, as opposed to the "bubble-wrap keys" on the Smart Keyboard.
 
-![Two iPads side by side. One is in the Logitech case and one is attached to an Apple Smart Keyboard. The Logitech keyboard is about twice as deep as the Apple keyboard.](/img/2017-06--slim-combo-keyboard-comparison.jpg)
+![Two iPads side by side. One is in the Logitech case and one is attached to an Apple Smart Keyboard. The Logitech keyboard is about twice as deep as the Apple keyboard.](/img/2017-06-slim-combo-keyboard-comparison.jpg)
 
 There's one major downside once you have the keyboard folded out on the Slim
 Combo: the wrist rest, which seems as though it should be a nice feature, gets

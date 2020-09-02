@@ -22,7 +22,7 @@ MetaZ is a new implementation of MetaX, a tagging program which stopped getting
 updated a while back. It allows you to load in any video file and update its MP4
 metadata, which iTunes can then read and display.
 
-![Screenshot of MetaZ's main interface. The main section has a form that has the same metadata fields as iTunes.](/img/2013/04/11/MetaZ_Main_Window.png)
+![Screenshot of MetaZ's main interface. The main section has a form that has the same metadata fields as iTunes.](/img/2013-04-MetaZ_Main_Window.png)
 
 Using MetaZ, metadata fields that aren't editable in iTunes can be edited and
 saved. For example, the Date field cannot be set in the Get Info panel in

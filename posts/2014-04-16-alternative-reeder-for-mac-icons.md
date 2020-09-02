@@ -9,7 +9,7 @@ dock to me. I made a new icon based on the iOS version of Reeder.
 
 Like the old icon, it has two states, one for when there are no new items:
 
-![An app icon in the macOS dock. It's a grey circle with a darker grey star in the centre.](img/2014-04-reeder-normal.png)
+![An app icon in the macOS dock. It's a grey circle with a darker grey star in the centre.](/img/2014-04-reeder-normal.png)
 
 and one for when you have unread articles:
 

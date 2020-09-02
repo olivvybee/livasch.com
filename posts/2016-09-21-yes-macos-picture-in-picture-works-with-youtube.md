@@ -21,4 +21,4 @@ control bar, and that button does not appear in the YouTube player.
 
 But PiP _does_ work on YouTube; just right click on the video twice.
 
-![Screenshot of activating PiP on a YouTube video](/images/2016/09/21/youtube-pip.png)
+![Screenshot of activating PiP on a YouTube video](/img/2016-09-youtube-pip.png)

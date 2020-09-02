@@ -2,7 +2,9 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import { Post } from '../interfaces';
+
 import { Column } from './Layout';
+import Link from './Link';
 
 interface PostListProps {
   posts: Post[];
@@ -15,7 +17,9 @@ const PostList: React.FC<PostListProps> = ({ posts }) => (
 
       return (
         <article key={url}>
-          <h2>{title}</h2>
+          <Link href='/[...slug]' as={url}>
+            <h2>{title}</h2>
+          </Link>
           <span>{date}</span>
 
           <ReactMarkdown source={excerpt} />

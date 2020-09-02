@@ -4,6 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { Post } from '../interfaces';
 import { parsePostContent } from '../utils/parsePostContent';
 import { getAllPosts } from '../utils/getAllPosts';
+import PageTemplate from '../components/PageTemplate';
 
 interface PostUrlQuery {
   slug: string[];
@@ -11,7 +12,11 @@ interface PostUrlQuery {
 }
 
 const PostPage = ({ title, date, tags, body }: Post) => {
-  return <ReactMarkdown source={body} />;
+  return (
+    <PageTemplate title={title}>
+      <ReactMarkdown source={body} />
+    </PageTemplate>
+  );
 };
 
 export default PostPage;

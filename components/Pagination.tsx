@@ -15,6 +15,7 @@ const Pagination: React.FC<PaginationProps> = ({
     {!!newerPostsPageNumber && (
       <IconLink
         icon='arrow-left'
+        gridGap={8}
         href='/page/[pageNumber]'
         as={`/page/${newerPostsPageNumber}`}>
         Newer posts
@@ -27,6 +28,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <IconLink
         flipped={true}
         icon='arrow-right'
+        gridGap={8}
         href='/page/[pageNumber]'
         as={`/page/${olderPostsPageNumber}`}>
         Older posts

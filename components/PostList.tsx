@@ -8,32 +8,57 @@ import { Column, Spacer } from './Layout';
 import Link from './Link';
 import Metadata from './PostHeader';
 import PostHeader from './PostHeader';
+import IconLink from './IconLink';
+import { useTheme } from './Theming';
 
 interface PostListProps {
   posts: Post[];
 }
 
-const PostList: React.FC<PostListProps> = ({ posts }) => (
-  <Column gridGap={64}>
-    {posts.map(({ title, date, tags, body, url }) => {
-      const [excerpt, rest] = body.split('<!-- more -->');
+const PostList: React.FC<PostListProps> = ({ posts }) => {
+  const theme = useTheme();
 
-      return (
-        <article key={url}>
-          <Column>
-            <PostHeader title={title} date={date} url={url} tag='h2' />
+  return (
+    <Column gridGap={48}>
+      {posts.map(({ title, date, tags, body, url }, index) => {
+        const [excerpt, rest] = body.split('<!-- more -->');
 
-            <Spacer height={24} />
+        return (
+          <article
+            key={url}
+            css={{
+              paddingBottom: 56,
+              borderBottom: `1px solid ${theme.colours.separator}`,
+            }}>
+            <Column>
+              <PostHeader title={title} date={date} url={url} tag='h2' />
 
-            <ReactMarkdown source={excerpt} />
+              <Spacer height={24} />
 
-            {!!rest && <span>Read the rest...</span>}
-          </Column>
-        </article>
-      );
-    })}
-  </Column>
-);
+              <ReactMarkdown source={excerpt} />
+
+              {!!rest && (
+                <>
+                  <Spacer height={32} />
+                  <div css={{ width: 'max-content' }}>
+                    <IconLink
+                      flipped
+                      icon={'arrow-right'}
+                      href='/[...slug]'
+                      as={url}
+                      gridGap={8}>
+                      Read the rest
+                    </IconLink>
+                  </div>
+                </>
+              )}
+            </Column>
+          </article>
+        );
+      })}
+    </Column>
+  );
+};
 
 PostList.displayName = 'PostList';
 

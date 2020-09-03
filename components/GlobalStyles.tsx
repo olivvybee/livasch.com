@@ -49,6 +49,8 @@ const GlobalStyles = () => {
         fontSize: '2rem',
       },
       img: {
+        display: 'block',
+        margin: '0 auto',
         maxWidth: '100%',
       },
     },

@@ -27,7 +27,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
           <article
             key={url}
             css={{
-              paddingBottom: 56,
+              paddingBottom: 48,
               borderBottom: `1px solid ${theme.colours.separator}`,
             }}>
             <Column>

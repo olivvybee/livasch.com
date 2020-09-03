@@ -37,6 +37,7 @@ const GlobalStyles = () => {
       },
       p: {
         fontSize: '1.3rem',
+        lineHeight: 1.4,
         ':not(:last-of-type)': {
           marginBottom: '1.5rem',
         },

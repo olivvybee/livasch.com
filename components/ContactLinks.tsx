@@ -16,8 +16,12 @@ interface ContactLinksProps {
   links: ContactLink[];
 }
 
-const Ul = styled(Row)({
+const Ul = styled('div')({
   listStyleType: 'none',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(96px, 1fr))',
+  gridColumnGap: 32,
+  gridRowGap: 32,
 });
 Ul.displayName = 'Ul';
 
@@ -60,12 +64,7 @@ ContactLinkIcon.displayName = 'ContactLinkIcon';
 const ContactLinks: React.FC<ContactLinksProps> = ({ links }) => (
   <Column gridGap={24}>
     <h3>Places to find me</h3>
-    <Ul
-      role='list'
-      gridGap={32}
-      flexWrap='wrap'
-      wrapSpacing={32}
-      justifyContent='center'>
+    <Ul role='list'>
       {links.map(({ name, url, icon, colour }) => (
         <li key={name}>
           <ContactLinkAnchor

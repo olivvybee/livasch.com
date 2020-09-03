@@ -6,6 +6,7 @@ import PageTemplate from '../components/PageTemplate';
 import ContactLinks from '../components/ContactLinks';
 import { parsePageContent } from '../utils/parsePageContent';
 import { getAllPages } from '../utils/getAllPages';
+import { Column, Spacer } from '../components/Layout';
 
 interface PageUrlQuery {
   slug: string;
@@ -25,9 +26,17 @@ interface PageProps {
 
 const Page = ({ title, body, contactLinks }: PageProps) => (
   <PageTemplate title={title}>
-    <ReactMarkdown source={body} />
+    <Column>
+      <ReactMarkdown source={body} />
 
-    {contactLinks.length && <ContactLinks links={contactLinks} />}
+      {contactLinks.length && (
+        <>
+          <Spacer height={24} />
+          <hr />
+          <ContactLinks links={contactLinks} />
+        </>
+      )}
+    </Column>
   </PageTemplate>
 );
 

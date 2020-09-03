@@ -55,6 +55,19 @@ const GlobalStyles = () => {
       },
       hr: {
         marginBottom: '1.5rem',
+        border: 'none',
+        height: 1,
+        background: `
+          linear-gradient(
+            90deg,
+            ${theme.colours.red},
+            ${theme.colours.orange},
+            ${theme.colours.yellow},
+            ${theme.colours.green},
+            ${theme.colours.blue},
+            ${theme.colours.purple}
+          )
+        `,
       },
     },
   });

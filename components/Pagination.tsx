@@ -18,9 +18,6 @@ const Pagination: React.FC<PaginationProps> = ({
     <Row
       css={{
         width: '100%',
-        borderTop: `1px solid ${theme.colours.separator}`,
-        paddingTop: 48,
-        paddingBottom: 16,
       }}>
       {!!newerPostsPageNumber && (
         <IconLink

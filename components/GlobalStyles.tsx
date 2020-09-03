@@ -53,6 +53,9 @@ const GlobalStyles = () => {
         margin: '0 auto',
         maxWidth: '100%',
       },
+      hr: {
+        marginBottom: '1.5rem',
+      },
     },
   });
 

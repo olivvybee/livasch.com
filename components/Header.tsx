@@ -5,7 +5,6 @@ import siteConfig from '../siteconfig.json';
 import { styled } from './Theming';
 import Link from './Link';
 import { Row, FlexibleSpacer } from './Layout';
-import IconLink from './IconLink';
 
 const HeaderWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
@@ -23,36 +22,32 @@ const Header = () => (
   <HeaderWrapper>
     <HeaderContent>
       <Row gridGap={16} alignItems='center' flexWrap='wrap' wrapSpacing={16}>
-        <Link href='/'>
-          <Row gridGap={12} alignItems='center'>
-            <div
-              style={{
-                color: 'black',
-                backgroundColor: 'aquamarine',
-                height: 32,
-                width: 32,
-                fontSize: 12,
-              }}>
-              Logo
-            </div>
+        <Row gridGap={12} alignItems='center'>
+          <div
+            style={{
+              color: 'black',
+              backgroundColor: 'aquamarine',
+              height: 32,
+              width: 32,
+              fontSize: 12,
+            }}>
+            Logo
+          </div>
+          <Link href='/'>
             <span css={{ fontSize: '2rem', fontWeight: 'bold' }}>
               {siteConfig.title}
             </span>
-          </Row>
-        </Link>
+          </Link>
+        </Row>
 
         <FlexibleSpacer />
 
-        <Row gridGap={24}>
-          <IconLink href='/[slug]' as='/about' icon='user' gridGap={8}>
+        <Row gridGap={32}>
+          <Link href='/[slug]' as='/about'>
             About
-          </IconLink>
-          <IconLink href='/projects' icon='code' gridGap={8}>
-            Projects
-          </IconLink>
-          <IconLink href='/archive' icon='list-ul' gridGap={8}>
-            Archive
-          </IconLink>
+          </Link>
+          <Link href='/projects'>Projects</Link>
+          <Link href='/archive'>Archive</Link>
         </Row>
       </Row>
     </HeaderContent>

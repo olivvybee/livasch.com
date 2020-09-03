@@ -21,18 +21,22 @@ const PostHeader: React.FC<PostHeaderProps> = ({
 
   const formattedDate = moment(date).format('LL');
 
-  const formattedTitle = tag === 'h2' ? <h2>{title}</h2> : <h1>{title}</h1>;
+  // const formattedTitle = tag === 'h2' ? <h2>{title}</h2> : <h1>{title}</h1>;
+
+  const formattedTitle = !!url ? (
+    <Link href='/[...slug]' as={url}>
+      {title}
+    </Link>
+  ) : (
+    title
+  );
 
   return (
-    <Column gridGap={4}>
-      {!!url ? (
-        <Link href='/[...slug]' as={url}>
-          {formattedTitle}
-        </Link>
-      ) : (
-        formattedTitle
-      )}
-      <span css={{ color: theme.colours.textSecondary }}>{formattedDate}</span>
+    <Column gridGap={6}>
+      {tag === 'h2' ? <h2>{formattedTitle}</h2> : <h1>{formattedTitle}</h1>}
+      <span css={{ color: theme.colours.textSecondary, fontSize: '1rem' }}>
+        {formattedDate}
+      </span>
     </Column>
   );
 };

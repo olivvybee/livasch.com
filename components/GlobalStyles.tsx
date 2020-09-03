@@ -1,11 +1,30 @@
 import { Global, css } from '@emotion/core';
 import { useTheme } from './Theming';
-import { useContext } from 'react';
+import { useContext, CSSProperties } from 'react';
 import { linkColoursContext } from './LinkColours';
 
 const GlobalStyles = () => {
   const theme = useTheme();
   const { colour, hoverColour } = useContext(linkColoursContext);
+
+  const rainbowGradient = `
+    linear-gradient(
+      90deg,
+      ${theme.colours.red},
+      ${theme.colours.orange},
+      ${theme.colours.yellow},
+      ${theme.colours.green},
+      ${theme.colours.blue},
+      ${theme.colours.purple}
+    )
+  `;
+
+  const rainbowText: CSSProperties = {
+    background: rainbowGradient,
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+  };
 
   const styles = css({
     '*': {
@@ -25,16 +44,29 @@ const GlobalStyles = () => {
       color: colour,
       textDecoration: 'none',
       transition: 'color 0.2s',
+      ':hover:not(.no-rainbow)': {
+        ...rainbowText,
+      },
     },
-    'a:hover': {
-      color: hoverColour,
-      textDecoration: 'underline',
+    button: {
+      color: colour,
+      textDecoration: 'none',
+      transition: 'color 0.2s',
+      background: 'none',
+      border: 'none',
+      fontSize: 'inherit',
+      cursor: 'pointer',
+      textAlign: 'start',
+      display: 'inline',
+      ':hover': {
+        color: hoverColour,
+        textDecoration: 'underline',
+        ...rainbowText,
+      },
     },
 
     main: {
-      a: {
-        fontSize: '1.3rem',
-      },
+      fontSize: '1.3rem',
       p: {
         fontSize: '1.3rem',
         lineHeight: 1.4,
@@ -57,17 +89,7 @@ const GlobalStyles = () => {
         marginBottom: '1.5rem',
         border: 'none',
         height: 1,
-        background: `
-          linear-gradient(
-            90deg,
-            ${theme.colours.red},
-            ${theme.colours.orange},
-            ${theme.colours.yellow},
-            ${theme.colours.green},
-            ${theme.colours.blue},
-            ${theme.colours.purple}
-          )
-        `,
+        background: rainbowGradient,
       },
     },
   });

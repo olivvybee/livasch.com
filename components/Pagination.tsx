@@ -1,6 +1,6 @@
 import React from 'react';
-import { Row, FlexibleSpacer, Column } from './Layout';
-import IconLink from './IconLink';
+import { Row, FlexibleSpacer } from './Layout';
+import Link from './Link';
 import { useTheme } from './Theming';
 
 interface PaginationProps {
@@ -20,26 +20,17 @@ const Pagination: React.FC<PaginationProps> = ({
         width: '100%',
       }}>
       {!!newerPostsPageNumber && (
-        <IconLink
-          icon='arrow-left'
-          gridGap={8}
-          href='/page/[pageNumber]'
-          as={`/page/${newerPostsPageNumber}`}>
-          Newer posts
-        </IconLink>
+        <Link href='/page/[pageNumber]' as={`/page/${newerPostsPageNumber}`}>
+          ← Newer posts
+        </Link>
       )}
 
       <FlexibleSpacer />
 
       {!!olderPostsPageNumber && (
-        <IconLink
-          flipped={true}
-          icon='arrow-right'
-          gridGap={8}
-          href='/page/[pageNumber]'
-          as={`/page/${olderPostsPageNumber}`}>
-          Older posts
-        </IconLink>
+        <Link href='/page/[pageNumber]' as={`/page/${olderPostsPageNumber}`}>
+          Older posts →
+        </Link>
       )}
     </Row>
   );

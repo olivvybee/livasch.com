@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import NextLink, { LinkProps } from 'next/link';
 
 const Link: React.FC<LinkProps> = ({ children, ...props }) => (

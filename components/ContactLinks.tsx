@@ -21,51 +21,62 @@ const Ul = styled(Row)({
 });
 Ul.displayName = 'Ul';
 
-const ContactLinkAnchor = styled('a')(({ theme }) => ({
-  color: theme.colours.text,
-
-  ':hover': {
-    color: theme.colours.text,
-    textDecoration: 'none',
-  },
-}));
-ContactLinkAnchor.displayName = 'ContactLinkAnchor';
-
-interface ContactLinkIconProps {
+interface ContactLinkAnchorProps {
   hoverColour: string;
 }
 
-const ContactLinkIcon = styled('div')<ContactLinkIconProps>(
+const ContactLinkAnchor = styled('a')<ContactLinkAnchorProps>(
   ({ theme, hoverColour }) => ({
-    width: 64,
-    height: 64,
-    borderRadius: '50%',
-    border: `2px solid ${theme.colours.text}`,
     color: theme.colours.text,
-    backgroundColor: theme.colours.background,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'border-color 0.2s, background-color 0.2s',
+
     ':hover': {
-      border: `2px solid ${hoverColour}`,
-      backgroundColor: hoverColour,
+      color: theme.colours.text,
+      textDecoration: 'none',
+
+      span: {
+        border: `2px solid ${hoverColour}`,
+        backgroundColor: hoverColour,
+      },
     },
   })
 );
+ContactLinkAnchor.displayName = 'ContactLinkAnchor';
+
+const ContactLinkIcon = styled('span')(({ theme }) => ({
+  fontSize: '1rem',
+  width: 64,
+  height: 64,
+  borderRadius: '50%',
+  border: `2px solid ${theme.colours.text}`,
+  color: theme.colours.text,
+  backgroundColor: theme.colours.background,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  transition: 'border-color 0.2s, background-color 0.2s',
+}));
 ContactLinkIcon.displayName = 'ContactLinkIcon';
 
 const ContactLinks: React.FC<ContactLinksProps> = ({ links }) => (
   <Column gridGap={24}>
     <h3>Places to find me</h3>
-    <Ul role='list' gridGap={32} flexWrap='wrap' wrapSpacing={8}>
+    <Ul
+      role='list'
+      gridGap={32}
+      flexWrap='wrap'
+      wrapSpacing={32}
+      justifyContent='center'>
       {links.map(({ name, url, icon, colour }) => (
         <li key={name}>
-          <ContactLinkAnchor href={url} target='_blank'>
+          <ContactLinkAnchor
+            href={url}
+            target='_blank'
+            className='no-rainbow'
+            hoverColour={colour}>
             <Column
               alignItems='center'
-              css={{ maxWidth: 64, textAlign: 'center' }}>
-              <ContactLinkIcon hoverColour={colour}>
+              css={{ width: 96, textAlign: 'center' }}>
+              <ContactLinkIcon>
                 <FontAwesomeIcon
                   icon={icon.split('-') as [IconPrefix, IconName]}
                   size='2x'

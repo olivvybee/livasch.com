@@ -5,7 +5,7 @@ import { Post } from '../interfaces';
 
 import { Column, Spacer } from './Layout';
 import PostHeader from './PostHeader';
-import IconLink from './IconLink';
+import Link from './Link';
 import Pagination from './Pagination';
 
 interface PostListProps {
@@ -39,14 +39,9 @@ const PostList: React.FC<PostListProps> = ({
                 <>
                   <Spacer height={24} />
                   <div css={{ width: 'max-content' }}>
-                    <IconLink
-                      flipped
-                      icon={'arrow-right'}
-                      href='/[...slug]'
-                      as={url}
-                      gridGap={8}>
-                      Read the rest
-                    </IconLink>
+                    <Link href='/[...slug]' as={url}>
+                      Read the rest →
+                    </Link>
                   </div>
                 </>
               )}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { styled } from './Theming';
-import IconLink from './IconLink';
+import Link from './Link';
 
 const SkipLinkWrapper = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -27,9 +27,7 @@ const SkipLinkWrapper = styled('div')(({ theme }) => ({
 
 const SkipLink = () => (
   <SkipLinkWrapper>
-    <IconLink href='#main-content' icon='angle-double-down' gridGap={8}>
-      Skip to content
-    </IconLink>
+    <Link href='#main-content'>Skip to content →</Link>
   </SkipLinkWrapper>
 );
 

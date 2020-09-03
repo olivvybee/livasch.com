@@ -4,9 +4,8 @@ import siteConfig from '../siteconfig.json';
 
 import { styled } from './Theming';
 import Link from './Link';
-import { Row, FlexibleSpacer, Spacer } from './Layout';
+import { Row } from './Layout';
 import BackToTopButton from './BackToTopButton';
-import IconLink from './IconLink';
 
 const FooterWrapper = styled('div')(({ theme }) => ({
   backgroundColor: theme.colours.backgroundAccent,
@@ -41,15 +40,11 @@ const Footer = () => {
           </span>
 
           <Row gridGap={24}>
-            <IconLink href='/rss' icon='rss'>
-              RSS
-            </IconLink>
+            <Link href='/rss'>RSS</Link>
 
-            <IconLink
-              href={`https://twitter.com/${siteConfig.siteTwitter}`}
-              icon={['fab', 'twitter']}>
+            <Link href={`https://twitter.com/${siteConfig.siteTwitter}`}>
               @{siteConfig.siteTwitter}
-            </IconLink>
+            </Link>
           </Row>
 
           <BackToTopButton />

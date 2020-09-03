@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import moment from 'moment';
 
 import { Post } from '../interfaces';
 
-import { Column } from './Layout';
+import { Column, Spacer } from './Layout';
 import Link from './Link';
+import Metadata from './PostHeader';
+import PostHeader from './PostHeader';
 
 interface PostListProps {
   posts: Post[];
@@ -17,14 +20,15 @@ const PostList: React.FC<PostListProps> = ({ posts }) => (
 
       return (
         <article key={url}>
-          <Link href='/[...slug]' as={url}>
-            <h2>{title}</h2>
-          </Link>
-          <span>{date}</span>
+          <Column>
+            <PostHeader title={title} date={date} url={url} tag='h2' />
 
-          <ReactMarkdown source={excerpt} />
+            <Spacer height={24} />
 
-          {!!rest && <span>Read the rest...</span>}
+            <ReactMarkdown source={excerpt} />
+
+            {!!rest && <span>Read the rest...</span>}
+          </Column>
         </article>
       );
     })}

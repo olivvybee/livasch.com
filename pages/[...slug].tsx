@@ -1,23 +1,30 @@
 import ReactMarkdown from 'react-markdown';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import moment from 'moment';
+import 'moment/locale/en-gb';
 
 import { Post } from '../interfaces';
 import { parsePostContent } from '../utils/parsePostContent';
 import { getAllPosts } from '../utils/getAllPosts';
 import PageTemplate from '../components/PageTemplate';
+import { Column } from '../components/Layout';
+import PostHeader from '../components/PostHeader';
+
+moment.locale('en-gb');
 
 interface PostUrlQuery {
   slug: string[];
   [key: string]: string | string[];
 }
 
-const PostPage = ({ title, date, tags, body }: Post) => {
-  return (
-    <PageTemplate title={title}>
+const PostPage = ({ title, date, tags, body }: Post) => (
+  <PageTemplate title={title}>
+    <Column gridGap={32}>
+      <PostHeader title={title} date={date} />
       <ReactMarkdown source={body} />
-    </PageTemplate>
-  );
-};
+    </Column>
+  </PageTemplate>
+);
 
 export default PostPage;
 

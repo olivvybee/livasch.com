@@ -2,7 +2,8 @@
   "colours": {
     "background": "#140d17",
     "backgroundAccent": "#221627",
-    "text": "#ece5f0",
+    "text": "#ece6ef",
+    "textSecondary": "#b9b5ba",
     "separator": "#d4c5dd",
     "red": "#e7504b",
     "orange": "#ed9456",

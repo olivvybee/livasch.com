@@ -7,7 +7,7 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import GlobalStyles from './GlobalStyles';
-import { Column, FlexibleSpacer } from './Layout';
+import { Column, FlexibleSpacer, Row, Spacer } from './Layout';
 import { styled } from './Theming';
 import SkipLink from './SkipLink';
 
@@ -35,7 +35,11 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ children, title }) => {
       <SkipLink />
       <PageContainer>
         <Header />
-        <Main id='main-content'>{children}</Main>
+        <Row>
+          <Spacer width={16} />
+          <Main id='main-content'>{children}</Main>
+          <Spacer width={16} />
+        </Row>
         <FlexibleSpacer />
         <Footer />
       </PageContainer>

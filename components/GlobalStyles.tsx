@@ -30,6 +30,20 @@ const GlobalStyles = () => {
       color: hoverColour,
       textDecoration: 'underline',
     },
+
+    p: {
+      fontSize: '1.3rem',
+      marginBottom: '1.5rem',
+    },
+    h1: {
+      fontSize: '2.5rem',
+    },
+    h2: {
+      fontSize: '2rem',
+    },
+    img: {
+      maxWidth: '100%',
+    },
   });
 
   return <Global styles={styles} />;

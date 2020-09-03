@@ -1,29 +1,32 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import moment from 'moment';
 
 import { Post } from '../interfaces';
 
 import { Column, Spacer } from './Layout';
-import Link from './Link';
-import Metadata from './PostHeader';
 import PostHeader from './PostHeader';
 import IconLink from './IconLink';
-import { useTheme } from './Theming';
+import Pagination from './Pagination';
 
 interface PostListProps {
   posts: Post[];
+  pageNumber: number;
+  hasOlderPosts: boolean;
+  hasNewerPosts: boolean;
 }
 
-const PostList: React.FC<PostListProps> = ({ posts }) => {
-  const theme = useTheme();
-
-  return (
-    <Column gridGap={120}>
-      {posts.map(({ title, date, tags, body, url }, index) => {
+const PostList: React.FC<PostListProps> = ({
+  posts,
+  pageNumber,
+  hasNewerPosts,
+  hasOlderPosts,
+}) => (
+  <Column gridGap={32}>
+    <Column gridGap={64}>
+      {posts.map(({ title, date, tags, body, url }) => {
         const [excerpt, rest] = body.split('<!-- more -->');
 
-        return (
+        return [
           <article key={url}>
             <Column>
               <PostHeader title={title} date={date} url={url} tag='h2' />
@@ -48,12 +51,19 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                 </>
               )}
             </Column>
-          </article>
-        );
+          </article>,
+
+          <hr />,
+        ];
       })}
     </Column>
-  );
-};
+
+    <Pagination
+      newerPostsPageNumber={hasNewerPosts ? pageNumber - 1 : undefined}
+      olderPostsPageNumber={hasOlderPosts ? pageNumber + 1 : undefined}
+    />
+  </Column>
+);
 
 PostList.displayName = 'PostList';
 

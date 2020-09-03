@@ -7,8 +7,6 @@ import PostList from '../components/PostList';
 import { Post } from '../interfaces';
 import siteConfig from '../siteconfig.json';
 import { getAllPosts } from '../utils/getAllPosts';
-import { Column } from '../components/Layout';
-import Pagination from '../components/Pagination';
 import ScreenReaderOnly from '../components/ScreenReaderOnly';
 
 interface IndexProps {
@@ -26,10 +24,12 @@ const Index: React.FC<IndexProps> = ({ posts, hasOlderPosts }) => (
       <ScreenReaderOnly>
         <h1>{siteConfig.title}</h1>
       </ScreenReaderOnly>
-      <Column gridGap={48}>
-        <PostList posts={posts} />
-        <Pagination olderPostsPageNumber={hasOlderPosts ? 2 : undefined} />
-      </Column>
+      <PostList
+        posts={posts}
+        pageNumber={1}
+        hasNewerPosts={false}
+        hasOlderPosts={hasOlderPosts}
+      />
     </PageTemplate>
 
     <script src='/scripts/netlify-identity.js'></script>

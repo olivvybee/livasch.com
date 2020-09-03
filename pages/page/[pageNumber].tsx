@@ -4,11 +4,9 @@ import _sortBy from 'lodash/sortBy';
 
 import { Post } from '../../interfaces';
 import PostList from '../../components/PostList';
-import { Column, Row } from '../../components/Layout';
 import { getAllPosts } from '../../utils/getAllPosts';
 import siteConfig from '../../siteconfig.json';
 import PageTemplate from '../../components/PageTemplate';
-import Pagination from '../../components/Pagination';
 
 interface PaginatedPostListQuery {
   pageNumber: string;
@@ -29,14 +27,12 @@ const PaginatedPostList: React.FC<PaginatedPostListProps> = ({
   hasOlderPosts,
 }) => (
   <PageTemplate>
-    <Column gridGap={48}>
-      <PostList posts={posts} />
-
-      <Pagination
-        newerPostsPageNumber={hasNewerPosts ? pageNumber - 1 : undefined}
-        olderPostsPageNumber={hasOlderPosts ? pageNumber + 1 : undefined}
-      />
-    </Column>
+    <PostList
+      posts={posts}
+      pageNumber={pageNumber}
+      hasNewerPosts={hasNewerPosts}
+      hasOlderPosts={hasOlderPosts}
+    />
   </PageTemplate>
 );
 

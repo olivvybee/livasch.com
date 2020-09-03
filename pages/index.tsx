@@ -26,7 +26,7 @@ const Index: React.FC<IndexProps> = ({ posts, hasOlderPosts }) => (
       <ScreenReaderOnly>
         <h1>{siteConfig.title}</h1>
       </ScreenReaderOnly>
-      <Column gridGap={32}>
+      <Column gridGap={48}>
         <PostList posts={posts} />
         <Pagination olderPostsPageNumber={hasOlderPosts ? 2 : undefined} />
       </Column>

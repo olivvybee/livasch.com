@@ -29,7 +29,7 @@ const PaginatedPostList: React.FC<PaginatedPostListProps> = ({
   hasOlderPosts,
 }) => (
   <PageTemplate>
-    <Column gridGap={32}>
+    <Column gridGap={48}>
       <PostList posts={posts} />
 
       <Pagination

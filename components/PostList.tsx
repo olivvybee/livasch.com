@@ -19,17 +19,12 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
   const theme = useTheme();
 
   return (
-    <Column gridGap={48}>
+    <Column gridGap={120}>
       {posts.map(({ title, date, tags, body, url }, index) => {
         const [excerpt, rest] = body.split('<!-- more -->');
 
         return (
-          <article
-            key={url}
-            css={{
-              paddingBottom: 48,
-              borderBottom: `1px solid ${theme.colours.separator}`,
-            }}>
+          <article key={url}>
             <Column>
               <PostHeader title={title} date={date} url={url} tag='h2' />
 
@@ -39,7 +34,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
 
               {!!rest && (
                 <>
-                  <Spacer height={32} />
+                  <Spacer height={24} />
                   <div css={{ width: 'max-content' }}>
                     <IconLink
                       flipped

@@ -7,7 +7,7 @@ const GlobalStyles = () => {
   const theme = useTheme();
   const { colour, hoverColour } = useContext(linkColoursContext);
 
-  const rainbowGradient = `
+  const rainbowGradientSoft = `
     linear-gradient(
       90deg,
       ${theme.colours.red},
@@ -19,8 +19,26 @@ const GlobalStyles = () => {
     )
   `;
 
+  const rainbowGradient = `
+    linear-gradient(
+      90deg,
+      ${theme.colours.red} 0%,
+      ${theme.colours.red} 16.67%,
+      ${theme.colours.orange} 16.67%,
+      ${theme.colours.orange} 33.33%,
+      ${theme.colours.yellow} 33.33%,
+      ${theme.colours.yellow} 50%,
+      ${theme.colours.green} 50%,
+      ${theme.colours.green} 66.67%,
+      ${theme.colours.blue} 66.67%,
+      ${theme.colours.blue} 83.34%,
+      ${theme.colours.purple} 83.34%,
+      ${theme.colours.purple} 100%
+    )
+  `;
+
   const rainbowText: CSSProperties = {
-    background: rainbowGradient,
+    background: rainbowGradientSoft,
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',

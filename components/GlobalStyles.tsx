@@ -91,6 +91,16 @@ const GlobalStyles = () => {
         height: 1,
         background: rainbowGradient,
       },
+      blockquote: {
+        background: rainbowGradient.replace('90deg', '180deg'),
+        paddingLeft: 8,
+        marginBottom: '1.5rem',
+        p: {
+          background: theme.colours.backgroundAccent,
+          padding: 16,
+          paddingLeft: 24,
+        },
+      },
     },
   });
 

@@ -48,19 +48,17 @@ Of course it would be much nicer to just be able to enter data into Health in
 imperial units, but this works fine until then. You can download the function
 [here](/downloads/stone-to-kg.pcalcfunctions).
 
----
-
-**Update, 14th March 2015**
-
-With iOS 8.2, the Health app now allows you to select which units to use for
-each type of measurement.
-
-To change this, open the single-measurement view by tapping on its graph, then
-at the bottom will be an entry called `Units`. That option will allow you to
-choose what unit you'd like to use.
-
-This mostly solves my issue with entering weight, because I can now choose
-between kilograms, stone, and pounds. However, I'm not _completely_ happy,
-because there's still no option for stone and pounds combined; either you can
-enter a number of pounds, or a decimal number of stone. I'm content using pounds
-for now, though.
+> **Update, 14th March 2015**
+>
+> With iOS 8.2, the Health app now allows you to select which units to use for
+> each type of measurement.
+>
+> To change this, open the single-measurement view by tapping on its graph, then
+> at the bottom will be an entry called `Units`. That option will allow you to
+> choose what unit you'd like to use.
+>
+> This mostly solves my issue with entering weight, because I can now choose
+> between kilograms, stone, and pounds. However, I'm not _completely_ happy,
+> because there's still no option for stone and pounds combined; either you can
+> enter a number of pounds, or a decimal number of stone. I'm content using
+> pounds for now, though.

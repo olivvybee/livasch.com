@@ -7,8 +7,6 @@ date: 2013-12-29T13:23:00Z
 > updated with new Emoji since 2013. It is also no longer being hosted on my
 > site. I'm keeping this post around as a historical archive.
 
----
-
 I like to use Emoji symbols when I'm using my iPhone or iPad, but I don't like
 having to keep the Emoji keyboard turned on. I always end up hitting the 'change
 keyboard' button by accident. I set up a few text shortcuts to the symbols I use

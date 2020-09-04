@@ -62,24 +62,16 @@ const GlobalStyles = () => {
       color: colour,
       textDecoration: 'none',
       transition: 'color 0.2s',
-      ':hover:not(.no-rainbow)': {
-        ...rainbowText,
-      },
-    },
-    button: {
-      color: colour,
-      textDecoration: 'none',
-      transition: 'color 0.2s',
-      background: 'none',
-      border: 'none',
-      fontSize: 'inherit',
-      cursor: 'pointer',
-      textAlign: 'start',
-      display: 'inline',
+      borderWidth: 0,
+      borderBottomWidth: 1,
+      borderStyle: 'solid',
+      borderColor: 'transparent',
       ':hover': {
         color: hoverColour,
-        textDecoration: 'underline',
-        ...rainbowText,
+      },
+      ':hover:not(.no-rainbow)': {
+        borderColor: 'unset',
+        borderImage: `${rainbowGradient} 1 1`,
       },
     },
 

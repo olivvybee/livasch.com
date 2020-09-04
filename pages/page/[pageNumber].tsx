@@ -53,8 +53,6 @@ export const getStaticProps: GetStaticProps<
   const hasNewerPosts = start > 0;
   const hasOlderPosts = end < posts.length;
 
-  console.log(posts.length, end);
-
   const filteredPosts = _sortBy(posts, 'date').reverse().slice(start, end);
 
   return {

@@ -21,7 +21,7 @@ const PostPage = ({ title, date, tags, body }: Post) => (
   <PageTemplate title={title}>
     <Column gridGap={32}>
       <PostHeader title={title} date={date} />
-      <ReactMarkdown source={body} />
+      <ReactMarkdown source={body.replace('<!-- more -->', '')} />
     </Column>
   </PageTemplate>
 );

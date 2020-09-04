@@ -2,6 +2,7 @@
   "colours": {
     "background": "#140d17",
     "backgroundAccent": "#221627",
+    "backgroundHighlight": "#3a2640",
     "text": "#ece6ef",
     "textSecondary": "#b9b5ba",
     "separator": "#d4c5dd",
@@ -13,5 +14,6 @@
     "purple": "#8b73ed"
   },
   "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
+  "fontFamilyCode": "SF Mono, Menlo, Consolas, monospace",
   "maxContentWidth": 800
 }

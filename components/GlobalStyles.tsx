@@ -131,6 +131,45 @@ const GlobalStyles = () => {
           left: 0,
         },
       },
+      ul: {
+        paddingLeft: '1.25rem',
+        listStyleType: 'none',
+        li: {
+          position: 'relative',
+          '::before': {
+            content: '""',
+            position: 'absolute',
+            left: '-1.25rem',
+            top: 'calc(0.75rem - 5px)',
+            width: 10,
+            height: 10,
+            borderRadius: '50%',
+            background: rainbowGradient.replace('90deg', '135deg'),
+          },
+        },
+      },
+      ol: {
+        paddingLeft: '1.75rem',
+      },
+      li: {
+        ':not(:last-of-type)': {
+          marginBottom: '1.5rem',
+        },
+        ul: {
+          marginTop: '1rem',
+        },
+        ol: {
+          marginTop: '1rem',
+        },
+        li: {
+          '::before': {
+            top: 'calc(1rem - 5px)',
+          },
+          ':not(:last-of-type)': {
+            marginBottom: '1rem',
+          },
+        },
+      },
     },
   });
 

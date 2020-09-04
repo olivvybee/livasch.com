@@ -18,7 +18,7 @@ The problem I had today was that I was using a form, and specifically, using the
 `process()` method on the form – if the validation failed, then an exception was
 being thrown:
 
-```py
+```python
 <type 'exceptions.Exception'> Validation error, field:box-name <validators.IS_NOT_IN_DB object at 0x1125e4990>
 ```
 
@@ -34,7 +34,7 @@ reload the page and not do anything. Uh oh.
 After a lot of debugging using the in-browser web2py debugger (I don't recommend
 this), I came across the following code, in `gluon/html.py`:
 
-```py
+```python
 for k, validator in enumerate(requires):
   try:
     (value, errors) = validator(value)
@@ -50,7 +50,7 @@ As all good framework debugging should require, I commented out the
 `try`/`except` statement to gain access to the actual exception being thrown,
 and – lo and behold – the validator was throwing an exception:
 
-```py
+```python
 <type 'exceptions.TypeError'> 'Rows' object is not callable
 ```
 

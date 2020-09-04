@@ -1,9 +1,9 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import ReactMarkdown from 'react-markdown';
 
 import PageTemplate from '../components/PageTemplate';
 import ContactLinks from '../components/ContactLinks';
+import Markdown from '../components/Markdown';
 import { parsePageContent } from '../utils/parsePageContent';
 import { getAllPages } from '../utils/getAllPages';
 import { Column, Spacer } from '../components/Layout';
@@ -27,7 +27,7 @@ interface PageProps {
 const Page = ({ title, body, contactLinks }: PageProps) => (
   <PageTemplate title={title}>
     <Column>
-      <ReactMarkdown source={body} />
+      <Markdown source={body} />
 
       {contactLinks.length && (
         <>

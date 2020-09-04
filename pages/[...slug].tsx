@@ -1,4 +1,3 @@
-import ReactMarkdown from 'react-markdown';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import moment from 'moment';
 import 'moment/locale/en-gb';
@@ -9,6 +8,7 @@ import { getAllPosts } from '../utils/getAllPosts';
 import PageTemplate from '../components/PageTemplate';
 import { Column } from '../components/Layout';
 import PostHeader from '../components/PostHeader';
+import Markdown from '../components/Markdown';
 
 moment.locale('en-gb');
 
@@ -21,7 +21,7 @@ const PostPage = ({ title, date, tags, body }: Post) => (
   <PageTemplate title={title}>
     <Column gridGap={32}>
       <PostHeader title={title} date={date} />
-      <ReactMarkdown source={body.replace('<!-- more -->', '')} />
+      <Markdown source={body.replace('<!-- more -->', '')} />
     </Column>
   </PageTemplate>
 );

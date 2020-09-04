@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 
 import { Post } from '../interfaces';
 
+import Markdown from './Markdown';
 import { Column, Spacer } from './Layout';
 import PostHeader from './PostHeader';
 import Link from './Link';
@@ -33,7 +33,7 @@ const PostList: React.FC<PostListProps> = ({
 
               <Spacer height={24} />
 
-              <ReactMarkdown source={excerpt} />
+              <Markdown source={excerpt} />
 
               {!!rest && (
                 <>

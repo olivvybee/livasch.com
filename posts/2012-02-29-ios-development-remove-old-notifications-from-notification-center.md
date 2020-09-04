@@ -14,14 +14,14 @@ notifications in Notification Center.
 If your application uses badges, you should be able to clear out entries in
 Notification Center by setting your badge to zero:
 
-```objc
+```objectivec
 [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 ```
 
 Or if your badge is already set to zero, you can set it to non-zero, then back
 to zero straight away and that should work.
 
-```objc
+```objectivec
 [[UIApplication sharedApplication] setApplicationIconBadgeNumber:1];
 [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
 ```
@@ -30,7 +30,7 @@ If that doesn't work, you can try setting the list of scheduled local
 notifications to itself; this keeps any scheduled notifications intact, but also
 removes old ones from Notification Center.
 
-```objc
+```objectivec
 UIApplication* application = [UIApplication sharedApplication];
 NSArray* scheduledNotifications = [NSArray arrayWithArray:application.scheduledLocalNotifications];
 application.scheduledLocalNotifications = scheduledNotifications;

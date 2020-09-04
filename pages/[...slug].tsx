@@ -6,7 +6,7 @@ import { Post } from '../interfaces';
 import { parsePostContent } from '../utils/parsePostContent';
 import { getAllPosts } from '../utils/getAllPosts';
 import PageTemplate from '../components/PageTemplate';
-import { Column } from '../components/Layout';
+import { Column, Spacer } from '../components/Layout';
 import PostHeader from '../components/PostHeader';
 import Markdown from '../components/Markdown';
 
@@ -19,8 +19,9 @@ interface PostUrlQuery {
 
 const PostPage = ({ title, date, tags, body }: Post) => (
   <PageTemplate title={title}>
-    <Column gridGap={32}>
+    <Column>
       <PostHeader title={title} date={date} />
+      <Spacer height={24} />
       <Markdown source={body.replace('<!-- more -->', '')} />
     </Column>
   </PageTemplate>

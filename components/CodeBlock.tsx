@@ -8,6 +8,7 @@ const Pre = styled('pre')(({ theme }) => ({
   padding: 16,
   overflowX: 'auto',
   width: '100%',
+  marginBottom: '1rem',
 }));
 
 const Code = styled('code')(({ theme }) => ({

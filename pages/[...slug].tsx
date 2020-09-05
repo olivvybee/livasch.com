@@ -9,6 +9,7 @@ import PageTemplate from '../components/PageTemplate';
 import { Column, Spacer } from '../components/Layout';
 import PostHeader from '../components/PostHeader';
 import Markdown from '../components/Markdown';
+import { getExcerpt } from '../utils/getExcerpt';
 
 moment.locale('en-gb');
 
@@ -17,15 +18,19 @@ interface PostUrlQuery {
   [key: string]: string | string[];
 }
 
-const PostPage = ({ title, date, tags, body }: Post) => (
-  <PageTemplate title={title}>
-    <Column>
-      <PostHeader title={title} date={date} />
-      <Spacer height={24} />
-      <Markdown source={body.replace('<!-- more -->', '')} />
-    </Column>
-  </PageTemplate>
-);
+const PostPage = ({ title, date, tags, body, url }: Post) => {
+  const description = getExcerpt({ body, maxWordCount: 50 });
+
+  return (
+    <PageTemplate title={title} description={description} url={url}>
+      <Column>
+        <PostHeader title={title} date={date} />
+        <Spacer height={24} />
+        <Markdown source={body.replace('<!-- more -->', '')} />
+      </Column>
+    </PageTemplate>
+  );
+};
 
 export default PostPage;
 

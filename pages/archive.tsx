@@ -9,6 +9,7 @@ import { getAllPosts } from '../utils/getAllPosts';
 import { Spacer, Column, Row } from '../components/Layout';
 import { useTheme } from '../components/Theming';
 import Link from '../components/Link';
+import siteConfig from '../siteconfig.json';
 
 interface ArchiveProps {
   posts: Post[];
@@ -31,7 +32,9 @@ const Archive: React.FC<ArchiveProps> = ({ posts }) => {
   const theme = useTheme();
 
   return (
-    <PageTemplate title='Archive'>
+    <PageTemplate
+      title='Archive'
+      description={`A list of every post written by ${siteConfig.author}.`}>
       <Column>
         <h1>Archive</h1>
         <Spacer height={16} />

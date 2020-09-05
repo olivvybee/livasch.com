@@ -7,6 +7,7 @@ import Markdown from '../components/Markdown';
 import { parsePageContent } from '../utils/parsePageContent';
 import { getAllPages } from '../utils/getAllPages';
 import { Column, Spacer } from '../components/Layout';
+import { getExcerpt } from '../utils/getExcerpt';
 
 interface PageUrlQuery {
   slug: string;
@@ -16,6 +17,7 @@ interface PageUrlQuery {
 interface PageProps {
   title: string;
   body: string;
+  url: string;
   contactLinks: {
     name: string;
     url: string;
@@ -24,22 +26,27 @@ interface PageProps {
   }[];
 }
 
-const Page = ({ title, body, contactLinks }: PageProps) => (
-  <PageTemplate title={title}>
-    <Column>
-      <Markdown source={body} />
+const Page = ({ title, body, contactLinks, url }: PageProps) => {
+  const bodyWithoutTitle = body.split('\n\n').slice(1).join('\n\n');
+  const description = getExcerpt({ body: bodyWithoutTitle, maxWordCount: 50 });
 
-      {contactLinks.length && (
-        <>
-          <Spacer height={48} />
-          <hr />
-          <Spacer height={24} />
-          <ContactLinks links={contactLinks} />
-        </>
-      )}
-    </Column>
-  </PageTemplate>
-);
+  return (
+    <PageTemplate title={title} description={description} url={url}>
+      <Column>
+        <Markdown source={body} />
+
+        {contactLinks.length && (
+          <>
+            <Spacer height={48} />
+            <hr />
+            <Spacer height={24} />
+            <ContactLinks links={contactLinks} />
+          </>
+        )}
+      </Column>
+    </PageTemplate>
+  );
+};
 
 export default Page;
 

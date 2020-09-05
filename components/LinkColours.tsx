@@ -24,8 +24,8 @@ const LinkColoursContextProvider: React.FC = ({ children }) => {
   const theme = useTheme();
 
   const [values, setValues] = useState<LinkColoursContextShape>({
-    colour: theme.colours.background,
-    hoverColour: theme.colours.background,
+    colour: theme.colours.purple,
+    hoverColour: theme.colours.purple,
   });
 
   useEffect(() => {

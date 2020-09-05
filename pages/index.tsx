@@ -40,9 +40,7 @@ export default Index;
 
 export const getStaticProps: GetStaticProps<IndexProps> = async () => {
   const posts = getAllPosts();
-  const filteredPosts = _sortBy(posts, 'date')
-    .reverse()
-    .slice(0, siteConfig.paginationLength);
+  const filteredPosts = posts.slice(0, siteConfig.paginationLength);
 
   const hasOlderPosts = filteredPosts.length < posts.length;
 

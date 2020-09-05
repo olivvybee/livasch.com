@@ -1,7 +1,9 @@
+import _sortBy from 'lodash/sortBy';
+
 import { parsePostContent } from './parsePostContent';
 
 export const getAllPosts = () => {
-  return ((context) => {
+  const posts = ((context) => {
     const keys = context.keys();
     const values = keys.map(context);
 
@@ -18,4 +20,6 @@ export const getAllPosts = () => {
     });
     return data;
   })(require.context('../posts', true, /\.md$/));
+
+  return _sortBy(posts, 'date').reverse();
 };

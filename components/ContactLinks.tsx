@@ -73,9 +73,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ links }) => (
             target='_blank'
             className='no-rainbow'
             hoverColour={colour}>
-            <Column
-              alignItems='center'
-              css={{ width: 96, textAlign: 'center' }}>
+            <Column alignItems='center' css={{ textAlign: 'center' }}>
               <ContactLinkIcon>
                 <FontAwesomeIcon
                   icon={icon.split('-') as [IconPrefix, IconName]}

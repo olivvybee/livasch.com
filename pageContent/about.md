@@ -54,5 +54,5 @@ using [Netlify CMS](https://www.netlifycms.org). The entire site is open source
 so you can see how it's built on
 [Github](https://github.com/olivvysaur/livasch.com).
 
-You can stay up to date with new posts using the [RSS feed](/rss) or on Twitter
-by following [@livasch_blog](https://twitter.com/livasch_blog).
+You can stay up to date with new posts using the [RSS feed](/atom.xml) or on
+Twitter by following [@livasch_blog](https://twitter.com/livasch_blog).

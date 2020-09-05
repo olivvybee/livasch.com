@@ -40,7 +40,7 @@ const Footer = () => {
           </span>
 
           <Row gridGap={24}>
-            <Link href='/rss'>RSS</Link>
+            <Link href='/atom.xml'>RSS</Link>
 
             <Link href={`https://twitter.com/${siteConfig.siteTwitter}`}>
               @{siteConfig.siteTwitter}

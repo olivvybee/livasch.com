@@ -42,7 +42,6 @@ const Header = () => (
           <Link href='/[slug]' as='/about'>
             About
           </Link>
-          <Link href='/projects'>Projects</Link>
           <Link href='/archive'>Archive</Link>
         </Row>
       </Row>

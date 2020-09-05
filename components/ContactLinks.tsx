@@ -21,7 +21,7 @@ const Ul = styled('div')({
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(72px, 1fr))',
   gridColumnGap: 32,
-  gridRowGap: 32,
+  gridRowGap: 16,
 });
 Ul.displayName = 'Ul';
 

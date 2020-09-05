@@ -31,7 +31,7 @@ const Archive: React.FC<ArchiveProps> = ({ posts }) => {
   const theme = useTheme();
 
   return (
-    <PageTemplate>
+    <PageTemplate title='Archive'>
       <Column>
         <h1>Archive</h1>
         <Spacer height={16} />

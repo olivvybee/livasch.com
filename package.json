@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run generate-rss",
     "start": "next start",
-    "export": "npm run build && next export"
+    "export": "npm run build && next export",
+    "generate-rss": "ts-node -P ./tsconfig-scripts.json ./scripts/generateRSS.ts"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -17,6 +18,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "emotion-theming": "^10.0.27",
+    "feed": "^4.2.1",
     "lodash": "^4.17.20",
     "next": "9.5.2",
     "react": "16.13.1",
@@ -26,15 +28,18 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.161",
+    "@types/marked": "^1.1.0",
     "@types/node": "^14.6.0",
     "@types/react": "^16.9.46",
     "@types/react-syntax-highlighter": "^11.0.5",
     "@types/webpack-env": "^1.15.2",
     "gray-matter": "^4.0.2",
+    "marked": "^1.1.1",
     "moment": "^2.27.0",
     "prettier": "^2.1.0",
     "raw-loader": "^4.0.1",
     "react-markdown": "^4.3.1",
+    "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }
 }

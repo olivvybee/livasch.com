@@ -14,6 +14,7 @@ const feed = new Feed({
   title: siteConfig.title,
   id: siteConfig.url,
   link: siteConfig.url,
+  favicon: `${siteConfig.url}/favicon.ico`,
   updated: date.toDate(),
   language: 'en-GB',
   copyright: `© ${siteConfig.copyrightStart}-${date.year()} ${

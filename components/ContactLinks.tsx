@@ -19,7 +19,7 @@ interface ContactLinksProps {
 const Ul = styled('div')({
   listStyleType: 'none',
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(96px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(72px, 1fr))',
   gridColumnGap: 32,
   gridRowGap: 32,
 });
@@ -32,6 +32,7 @@ interface ContactLinkAnchorProps {
 const ContactLinkAnchor = styled('a')<ContactLinkAnchorProps>(
   ({ theme, hoverColour }) => ({
     color: theme.colours.text,
+    fontSize: '1rem',
 
     ':hover': {
       color: theme.colours.text,

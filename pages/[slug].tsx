@@ -31,8 +31,9 @@ const Page = ({ title, body, contactLinks }: PageProps) => (
 
       {contactLinks.length && (
         <>
-          <Spacer height={24} />
+          <Spacer height={48} />
           <hr />
+          <Spacer height={24} />
           <ContactLinks links={contactLinks} />
         </>
       )}

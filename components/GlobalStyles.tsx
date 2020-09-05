@@ -92,9 +92,11 @@ const GlobalStyles = () => {
       },
       h1: {
         fontSize: '2.5rem',
+        marginBottom: '2rem',
       },
       h2: {
         fontSize: '2rem',
+        marginBottom: '1.5rem',
       },
       img: {
         display: 'block',

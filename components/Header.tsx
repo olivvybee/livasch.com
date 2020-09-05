@@ -23,16 +23,12 @@ const Header = () => (
     <HeaderContent>
       <Row gridGap={16} alignItems='center' flexWrap='wrap' wrapSpacing={16}>
         <Row gridGap={12} alignItems='center'>
-          <div
-            style={{
-              color: 'black',
-              backgroundColor: 'aquamarine',
-              height: 32,
-              width: 32,
-              fontSize: 12,
-            }}>
-            Logo
-          </div>
+          <img
+            src='/logo.svg'
+            height={48}
+            width={48}
+            alt='A red hair bow tilted at an angle'
+          />
           <Link href='/'>
             <span css={{ fontSize: '2rem', fontWeight: 'bold' }}>
               {siteConfig.title}

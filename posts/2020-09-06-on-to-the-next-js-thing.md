@@ -69,4 +69,6 @@ Now when I'm editing a post, I can see a live-updating version of it in the prev
 
 ## The end... for now
 
-Implementing the preview was the last thing I did before publishing the redesigned and rebuilt site. I'm very happy with how it turned out. 
+Implementing the preview was the last thing I did before publishing the redesigned and rebuilt site. I'm very happy with how it turned out – not only does the new version look nicer, but it's much easier to work with, and it has good accessibility too.
+
+That being said, software is never truly _done_... there are still a few more features I'd like to add in future. But for now, I'm happy to share what I've made, and hopefully it'll lead to more than one post every two years.

@@ -63,7 +63,7 @@ Unlike the RSS feed, I couldn't find anyone else who had even attempted to use c
 
 Eventually I found a way to use the [`netlify-cms-app`](https://www.npmjs.com/package/netlify-cms-app) NPM package to run the CMS, rather than a static HTML file and the CDN. This allowed me to initialise the CMS in the context of Next.js, giving me access to the other components I'd created. All I did then was create a preview component which extracts the post content from its props and renders the exact same component that I use for posts on the actual site.
 
-Now when I'm editing a post, I can see a live-updating version of it in the preview that looks identical to the page that will be deployed once I publish it (because it's essentially an exact copy of that page).
+Now when I'm editing a post, I can see a live-updating version of it in the preview that looks identical to the page that will be deployed once I publish it – a million times better than editing a raw markdown file in VS Code.
 
 \[image]
 

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: On to the Next(.js) Thing
-date: 2020-09-06T12:53:36.479Z
+date: 2020-09-06T19:27:06.666Z
 ---
 For my first post in almost two years, and to go along with the redesign I've just rolled out, here's the story of why and how I rebuilt this site from scratch on an entirely new technology stack. <!-- more -->
 

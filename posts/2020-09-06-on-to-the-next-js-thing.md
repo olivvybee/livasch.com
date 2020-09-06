@@ -3,6 +3,10 @@ layout: article
 title: On to the Next(.js) Thing
 date: 2020-09-06T12:53:36.479Z
 ---
+For my first post in almost two years, and to go along with the redesign I've just rolled out, here's the story of why and how I rebuilt this site from scratch on an entirely new technology stack. <!-- more -->
+
+## The bad times
+
 For nearly seven years, this site was hosted on [Github Pages](https://pages.github.com/). There are many benefits to that, the main one being that it's totally free to use. It also means all the content is stored as plain text files, rather than being in a database somewhere, and by the nature of git, the version history is baked right in.
 
 However, I had one major problem with it: editing content required checking out the repository, manually adding a markdown file with the right name and the right metadata at the top, and committing it back to git to wait for it to be processed and published. It's an extremely cumbersome process, and I would usually have to copy an existing file and edit the metadata, because I could never remember the format.
@@ -27,8 +31,42 @@ But what if it could get even better? Sure, I could build the site as a React ap
 
 Its primary way of working is creating and updating markdown files in git with special metadata stored at the top. Sound familiar? It's basically automating away the painful process I was going through before! And just like Next.js and Netlify before it, it was pure coincidence that I learned about Netlify CMS.
 
-## git init
+## Time to build
 
-Armed with my site generator, my hosting platform, and my CMS, on 24th August 2020 I [got to work](https://github.com/olivvysaur/livasch.com/commit/f2139eb5307b5f8c888fe2df67fbc1ad85118269). I found an extremely helpful tutorial by Cassidy Williams, [Building a Markdown blog with Next 9.4 and Netlify](https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/) - exactly what I was trying to do.
+Armed with my site generator, my hosting platform, and my CMS, on 24th August 2020 I [got to work](https://github.com/olivvysaur/livasch.com/commit/f2139eb5307b5f8c888fe2df67fbc1ad85118269). I found an extremely helpful tutorial by Cassidy Williams, [Building a Markdown blog with Next 9.4 and Netlify](https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/) – exactly what I was trying to do.
 
 First I got Next.js set up to read posts from markdown files and render them with [`react-markdown`](https://www.npmjs.com/package/react-markdown). Then, I set up Netlify to run `next export`, which gets Next.js to export static HTML for the site. Finally, I got Netlify CMS set up to read and write those same markdown files being used to render posts.
+
+After that it was "simply" a case of designing and building the actual frontend. The only interesting thing to point out here is my use of [Emotion](https://emotion.sh) and [Emotion theming](https://emotion.sh/docs/theming); instead of using a big CSS file and `--var`s, common definitions like fonts and colours are defined in a [theme](https://github.com/olivvysaur/livasch.com/blob/main/theme.json) and then used in styled React components.
+
+## The going gets tough
+
+Once the frontend was built, there were two more things to do: an RSS feed, and proper styling for the editor preview in the CMS.
+
+RSS was tricky because pages in Next.js are designed to render React on an HTML page. RSS is... not that. It's an XML document describing the feed and its entries. I did a bit of research and couldn't find a solution I was happy with.
+
+One person suggested [creating an "API route" which builds the feed](https://ironeko.com/posts/how-to-add-an-rss-feed-to-your-next-js-site) when the request comes in. Not ideal given that by definition, my feed can only change at build time, so there's no need for so much dynamism.
+
+[Another suggestion](https://logana.dev/blog/rss-feeds-in-a-nextjs-site) involved a build-time script (perfect) but required editing the site's Webpack config to compile the script to the right place before it runs (inelegant). 
+
+My final implementation also uses a build-time script, but it's a simple Node.js script that runs with [ts-node](https://www.npmjs.com/package/ts-node) and simply creates an XML file in the `public` directory, which Next.js serves as-is. I simply added a new `generate-rss` script to my `package.json` and added it to the `build` script so it gets regenerated on every build.
+
+More of a challenge was the Netlify CMS editor preview. When editing a post in the CMS, you get a side-by-side view with the editable text on the left and a preview on the right. By default, the preview has no styling, so it's just a boring HTML document:
+
+\[image]
+
+It works, but I'd rather see how the post will look once it's actually published. Thankfully, Netlify CMS exposes a [`registerPreviewTemplate`](https://www.netlifycms.org/docs/customization/#registerpreviewtemplate) function that allows you to do just that. Just give it a React component that renders the preview given the content passed in as props.
+
+The hard part is how and where to actually call this function. Originally I had installed Netlify CMS by adding a `script` tag and pulling it from a CDN. The problem with that is it's used on a plain HTML page, so I didn't have access to any of the React components from the Next.js app I'd already made, like the layout for a post.
+
+Unlike the RSS feed, I couldn't find anyone else who had even attempted to use components from Next.js and put them into the editor preview. I had to figure this one out myself.
+
+Eventually I found a way to use the [`netlify-cms-app`](https://www.npmjs.com/package/netlify-cms-app) NPM package to run the CMS, rather than a static HTML file and the CDN. This allowed me to initialise the CMS in the context of Next.js, giving me access to the other components I'd created. All I did then was create a preview component which extracts the post content from its props and renders the exact same component that I use for posts on the actual site.
+
+Now when I'm editing a post, I can see a live-updating version of it in the preview that looks identical to the page that will be deployed once I publish it (because it's essentially an exact copy of that page).
+
+\[image]
+
+## The end... for now
+
+Implementing the preview was the last thing I did before publishing the redesigned and rebuilt site. I'm very happy with how it turned out. 

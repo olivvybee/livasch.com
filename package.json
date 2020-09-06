@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@emotion/cache": "^10.0.29",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
@@ -20,6 +21,7 @@
     "emotion-theming": "^10.0.27",
     "feed": "^4.2.1",
     "lodash": "^4.17.20",
+    "netlify-cms-app": "^2.12.20",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",

@@ -53,7 +53,7 @@ My final implementation also uses a build-time script, but it's a simple Node.js
 
 More of a challenge was the Netlify CMS editor preview. When editing a post in the CMS, you get a side-by-side view with the editable text on the left and a preview on the right. By default, the preview has no styling, so it's just a boring HTML document:
 
-\[image]
+![Screenshot of Netlify CMS with the text editor on the left and a plain back and white HTML preview on the right.](/img/2020-09-netlify-cms-preview-no-style.png)
 
 It works, but I'd rather see how the post will look once it's actually published. Thankfully, Netlify CMS exposes a [`registerPreviewTemplate`](https://www.netlifycms.org/docs/customization/#registerpreviewtemplate) function that allows you to do just that. Just give it a React component that renders the preview given the content passed in as props.
 
@@ -65,10 +65,10 @@ Eventually I found a way to use the [`netlify-cms-app`](https://www.npmjs.com/pa
 
 Now when I'm editing a post, I can see a live-updating version of it in the preview that looks identical to the page that will be deployed once I publish it – a million times better than editing a raw markdown file in VS Code.
 
-\[image]
+![Screenshot of Netlify CMS with the text editor on the left and a fully styled preview on the right that matches this website's style.](/img/2020-09-netlify-cms-preview-styled.png)
 
 ## The end... for now
 
 Implementing the preview was the last thing I did before publishing the redesigned and rebuilt site. I'm very happy with how it turned out – not only does the new version look nicer, but it's much easier to work with, and it has good accessibility too.
 
-That being said, software is never truly _done_... there are still a few more features I'd like to add in future. But for now, I'm happy to share what I've made, and hopefully it'll lead to more than one post every two years.
+That being said, software is never truly *done*... there are still a few more features I'd like to add in future. But for now, I'm happy to share what I've made, and hopefully it'll lead to more than one post every two years.

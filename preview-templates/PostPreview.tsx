@@ -13,10 +13,10 @@ const PostPreview: React.FC<PostPreviewProps> = ({
   window,
   document,
 }) => {
-  const title = entry.getIn(['data', 'title']);
+  const title = entry.getIn(['data', 'title']) || '';
   const date = entry.getIn(['data', 'date']);
-  const body = entry.getIn(['data', 'body']);
-  const tags = entry.getIn(['data', 'tags']);
+  const body = entry.getIn(['data', 'body']) || '';
+  const tags = entry.getIn(['data', 'tags']) || [];
   const slug = entry.getIn(['data', 'slug']);
 
   return (

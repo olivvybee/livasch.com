@@ -26,3 +26,9 @@ Through another total accident, at some point I found [Netlify](https://netlify.
 But what if it could get even better? Sure, I could build the site as a React app and get the benefits of a static site, but I was still going to have to edit raw markdown files, weird formatting and all. That's where [Netlify CMS](https://www.netlifycms.org/) comes in. It's a single-page React app that can be embedded into any site, and (as the name suggests) acts as a CMS.
 
 Its primary way of working is creating and updating markdown files in git with special metadata stored at the top. Sound familiar? It's basically automating away the painful process I was going through before! And just like Next.js and Netlify before it, it was pure coincidence that I learned about Netlify CMS.
+
+## git init
+
+Armed with my site generator, my hosting platform, and my CMS, on 24th August 2020 I [got to work](https://github.com/olivvysaur/livasch.com/commit/f2139eb5307b5f8c888fe2df67fbc1ad85118269). I found an extremely helpful tutorial by Cassidy Williams, [Building a Markdown blog with Next 9.4 and Netlify](https://www.netlify.com/blog/2020/05/04/building-a-markdown-blog-with-next-9.4-and-netlify/) - exactly what I was trying to do.
+
+First I got Next.js set up to read posts from markdown files and render them with [`react-markdown`](https://www.npmjs.com/package/react-markdown). Then, I set up Netlify to run `next export`, which gets Next.js to export static HTML for the site. Finally, I got Netlify CMS set up to read and write those same markdown files being used to render posts.

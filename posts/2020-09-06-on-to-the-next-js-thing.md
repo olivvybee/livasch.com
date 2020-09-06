@@ -12,3 +12,15 @@ That friction was (partially) responsible for the... *lackluster* amount of cont
 One of my other issues was that since Github Pages uses Jekyll as its static site generator, running the site locally involved getting a Ruby environment set up with all the right gems used by Github.
 
 It has honestly been about four years since I last successfully ran the old site locally on my machine, because it would always fail with some cryptic error or another. So my process for making structural or design changes was to edit the code directly on github.com, press commit, and wait for it to deploy to see if it worked. Not great.
+
+Some time in 2019, I decided I wanted to totally redesign the site, and use it as a starting point for getting back into writing. By then, I had settled in at Amazon spending all day working on React apps. I had less and less desire to maintain my Ruby-based Github Pages site; if I was going to put in a load of effort to rebuild the site, I wanted to use React.
+
+## A tale of three accidents
+
+I don't remember the exact circumstances, but somehow I stumbled across [Next.js](https://nextjs.org), a React-based framework capable of acting as a static site generator. Using an SSG was important to me because the then-current iteration of my site was statically generated and therefore loaded instantly. While I could have created a React frontend to a CMS like Wordpress, as far as I knew, I'd have to be loading content at render time, which would be a big step down from the pure HTML I was serving up to that point.
+
+So I had my generator. But how was I going to host the content? Github Pages certainly doesn't support Next.js, so I would have had to generate the content locally, then manually commit and push to deploy it. That's even more friction than the previous workflow (and totally impossible on an iPad).
+
+Through another total accident, at some point I found [Netlify](https://netlify.com), a platform that can be hooked up to a git repository, execute any custom build step, and host the resulting content. If it sounds entirely perfect for what I needed... that's because it is. I could create my Next.js site, commit the content as markdown files (same as with Jekyll), and Netlify would build the app and host it for me. Amazing!
+
+But what if it could get even better? Sure, I could build the site as a React app and get the benefits of a static site, but I was still going to have to edit raw markdown files, weird formatting and all.

@@ -23,4 +23,6 @@ So I had my generator. But how was I going to host the content? Github Pages cer
 
 Through another total accident, at some point I found [Netlify](https://netlify.com), a platform that can be hooked up to a git repository, execute any custom build step, and host the resulting content. If it sounds entirely perfect for what I needed... that's because it is. I could create my Next.js site, commit the content as markdown files (same as with Jekyll), and Netlify would build the app and host it for me. Amazing!
 
-But what if it could get even better? Sure, I could build the site as a React app and get the benefits of a static site, but I was still going to have to edit raw markdown files, weird formatting and all.
+But what if it could get even better? Sure, I could build the site as a React app and get the benefits of a static site, but I was still going to have to edit raw markdown files, weird formatting and all. That's where [Netlify CMS](https://www.netlifycms.org/) comes in. It's a single-page React app that can be embedded into any site, and (as the name suggests) acts as a CMS.
+
+Its primary way of working is creating and updating markdown files in git with special metadata stored at the top. Sound familiar? It's basically automating away the painful process I was going through before! And just like Next.js and Netlify before it, it was pure coincidence that I learned about Netlify CMS.

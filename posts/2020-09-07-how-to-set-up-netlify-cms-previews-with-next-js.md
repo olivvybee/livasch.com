@@ -53,7 +53,7 @@ To break this down a bit:
 - We use `useEffect` since it will run the code we specify after the first render, when `window` is defined.
 - We define an anonymous async function and then call it immediately. This is because `useEffect` doesn't allow the callback itself to be asynchronous.
 - We `await` the import, and then access the default export of the module; that's the CMS object we need.
-- Once the module has been imported, we initialise the CMS by calling `init()`.
+- Once the module has been imported, we initialise the CMS by calling `init()`. This loads the CMS and causes it to replace the current page (which was blank).
 - The dependencies of `useEffect` are an empty array `[]` because this should only be run once, after the first render.
 
 At this point opening `/admin` in the browser should display the Netlify CMS. If you get an error about not being able to find the config, make sure you moved `/public/admin/config.yml` up to `/public/config.yml`.

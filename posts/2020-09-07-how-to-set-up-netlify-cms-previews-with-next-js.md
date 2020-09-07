@@ -31,7 +31,7 @@ export default Admin;
 
 To actually load and display the CMS, we need to import the `netlify-cms-app` module. But here's the issue: as soon as the module is imported, it'll try to access the global `window` object. That won't work because Next.js will try to prerender or server-side render the page, so `window` will be undefined and the page will crash.
 
-Instead, we'll use a dynamic import to only import the module once we know `window` is defined. We'll do that using the React `useEffectHook` and an inline anonymous `async` function (since dynamic imports are asynchronous).
+Instead, we'll use a dynamic import to only import the module once we know `window` is defined. We'll do that using the React `useEffect` hook and an inline anonymous `async` function (since dynamic imports are asynchronous).
 
 ```jsx
 import { useEffect } from 'react';

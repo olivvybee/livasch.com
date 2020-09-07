@@ -95,7 +95,7 @@ const Admin = () => {
       const CMS = (await import('netlify-cms-app')).default;
       CMS.init();
 
-      CMS.registerPreviewTemplate('article', ArticlePreview)
+      CMS.registerPreviewTemplate('article', ArticlePreview);
     })();
   }, []);
 
@@ -106,3 +106,5 @@ const Admin = () => {
 All interaction with the `CMS` object has to be done in the `async` function, otherwise it will try to execute before the CMS is initialised.
 
 At this point, opening an entry in the CMS should display using the preview component you defined and registered! I'd recommend reading up on [`registerPreviewTemplate`](https://www.netlifycms.org/docs/customization/#registerpreviewtemplate) to see what other props it passes, if you need to make more complex previews.
+
+For further reference, my `admin.tsx` is [here](https://github.com/olivvysaur/livasch.com/blob/main/pages/admin.tsx), and my preview component is [here](https://github.com/olivvysaur/livasch.com/blob/485e4726fd222d4ec9300f6357ba9b0afb4b6ddb/preview-templates/PostPreview.tsx). Note that I'm using Typescript in my project, and I also do some extra work in a generic [`PreviewTemplate`](https://github.com/olivvysaur/livasch.com/blob/485e4726fd222d4ec9300f6357ba9b0afb4b6ddb/preview-templates/PreviewTemplate.tsx) which handles emulating the rest of the website around the preview.

@@ -31,7 +31,7 @@ export default Admin;
 
 To actually load and display the CMS, we need to import the `netlify-cms-app` module. But here's the issue: as soon as the module is imported, it'll try to access the global `window` object. That won't work because Next.js will try to prerender or server-side render the page, so `window` will be undefined and the page will crash.
 
-Instead, we'll use a dynamic import to only import the module once we know `window` is defined. We'll do that using the React `useEffectHook` and an inline anonymous async function (since dynamic imports are asynchronous).
+Instead, we'll use a dynamic import to only import the module once we know `window` is defined. We'll do that using the React `useEffectHook` and an inline anonymous `async` function (since dynamic imports are asynchronous).
 
 ```javascript
 import { useEffect } from 'react';
@@ -50,8 +50,8 @@ const Admin = () => {
 
 To break this down a bit:
 
-- We use `useEffect` since it will run the code we specify after the first render, when `window` is defined.
-- We define an anonymous async function and then call it immediately. This is because `useEffect` doesn't allow the callback itself to be asynchronous.
+- We use `useEffect` since it will run the code after the first render, when `window` is defined.
+- We define an anonymous `async` function and then call it immediately. This is because `useEffect` doesn't allow the callback itself to be asynchronous.
 - We `await` the import, and then access the default export of the module; that's the CMS object we need.
 - Once the module has been imported, we initialise the CMS by calling `init()`. This loads the CMS and causes it to replace the current page (which was blank).
 - The dependencies of `useEffect` are an empty array `[]` because this should only be run once, after the first render.
@@ -103,6 +103,6 @@ const Admin = () => {
 }
 ```
 
-The important thing to note is that interacting with the `CMS` object has to be done in the async function.
+All interaction with the `CMS` object has to be done in the `async` function, otherwise it will try to execute before the CMS is initialised.
 
 At this point, opening an entry in the CMS should display using the preview component you defined and registered! I'd recommend reading up on [`registerPreviewTemplate`](https://www.netlifycms.org/docs/customization/#registerpreviewtemplate) to see what other props it passes, if you need to make more complex previews.

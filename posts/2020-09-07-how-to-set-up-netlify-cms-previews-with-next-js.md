@@ -23,7 +23,7 @@ yarn add netlify-cms-app
 
 Now create a new admin page in Next.js by creating a `/pages/admin.js` file. To start with, just put a blank component in there so that the page loads but doesn't display anything.
 
-```javascript
+```jsx
 const Admin = () => <div />;
 
 export default Admin;
@@ -33,7 +33,7 @@ To actually load and display the CMS, we need to import the `netlify-cms-app` mo
 
 Instead, we'll use a dynamic import to only import the module once we know `window` is defined. We'll do that using the React `useEffectHook` and an inline anonymous `async` function (since dynamic imports are asynchronous).
 
-```javascript
+```jsx
 import { useEffect } from 'react';
 
 const Admin = () => {
@@ -68,7 +68,7 @@ Since I assume you already know how you want to render a preview, I'm going to a
 
 Assuming an `article` has three fields – `title`, `date`, and `body` – here's how the component would extract the data to render it:
 
-```javascript
+```jsx
 const ArticlePreview = ({ entry }) => {
   const title = entry.getIn(['data', 'title']);
   const date = entry.getIn(['data', 'date']);
@@ -84,7 +84,7 @@ const ArticlePreview = ({ entry }) => {
 
 Here's how to register that component as the article preview:
 
-```javascript
+```jsx
 import { useEffect } from 'react';
 
 import ArticlePreview from '../components/ArticlePreview';

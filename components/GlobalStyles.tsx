@@ -77,9 +77,8 @@ const GlobalStyles = () => {
 
     main: {
       fontSize: '1.3rem',
+      lineHeight: 1.4,
       p: {
-        fontSize: '1.3rem',
-        lineHeight: 1.4,
         ':not(:last-of-type)': {
           marginBottom: '1.5rem',
         },
@@ -134,7 +133,7 @@ const GlobalStyles = () => {
             content: '""',
             position: 'absolute',
             left: '-1.25rem',
-            top: 'calc(0.75rem - 5px)',
+            top: 'calc((1.3rem * 1.4 * 0.5) - 5px)',
             width: 10,
             height: 10,
             borderRadius: '50%',
@@ -155,7 +154,7 @@ const GlobalStyles = () => {
         },
         li: {
           '::before': {
-            top: 'calc(1rem - 5px)',
+            top: 'calc((1.3rem * 1.4 * 0.5) - 5px)',
           },
           ':not(:last-of-type)': {
             marginBottom: '1rem',

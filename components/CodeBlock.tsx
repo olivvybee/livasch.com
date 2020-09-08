@@ -43,6 +43,20 @@ const Code = styled('code')(({ theme }) => ({
   },
 }));
 
+const LANGUAGE_MAP = {
+  js: 'Javascript',
+  javascript: 'Javascript',
+  jsx: 'JSX',
+  ts: 'Typescript',
+  tsx: 'TSX',
+  md: 'Markdown',
+  mdx: 'MDX',
+  py: 'Python',
+  python: 'Python',
+  objc: 'Objective-C',
+  objectivec: 'Objective-C',
+};
+
 interface CodeBlockProps {
   value: string;
   language?: string;
@@ -53,15 +67,17 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ value, language }) => {
 
   return (
     <Column alignItems='flex-start'>
-      <span
-        css={{
-          color: theme.colours.textSecondary,
-          backgroundColor: theme.colours.backgroundHighlight,
-          padding: '8px 12px',
-          fontSize: '0.9rem',
-        }}>
-        {language}
-      </span>
+      {language && (
+        <span
+          css={{
+            color: theme.colours.textSecondary,
+            backgroundColor: theme.colours.backgroundHighlight,
+            padding: '8px 12px',
+            fontSize: '0.9rem',
+          }}>
+          {LANGUAGE_MAP[language] || language}
+        </span>
+      )}
       <SyntaxHighlighter
         language={language}
         useInlineStyles={false}

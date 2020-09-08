@@ -146,9 +146,7 @@ const GlobalStyles = () => {
         paddingLeft: '1.75rem',
       },
       li: {
-        ':not(:last-of-type)': {
-          marginBottom: '1.5rem',
-        },
+        marginBottom: '1.5rem',
         ul: {
           marginTop: '1rem',
         },

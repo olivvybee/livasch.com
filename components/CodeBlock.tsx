@@ -12,14 +12,6 @@ const Pre = styled('pre')(({ theme }) => ({
 }));
 
 const Code = styled('code')(({ theme }) => ({
-  color: theme.colours.text,
-  fontFamily: theme.fontFamilyCode,
-  whiteSpace: 'inherit',
-  background: 'none',
-  textAlign: 'left',
-  wordSpacing: 'normal',
-  wordBreak: 'normal',
-  overflowWrap: 'normal',
   fontSize: '0.75rem',
   lineHeight: 1.5,
   tabSize: 2,

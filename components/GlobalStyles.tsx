@@ -83,12 +83,12 @@ const GlobalStyles = () => {
         ':not(:last-of-type)': {
           marginBottom: '1.5rem',
         },
-        code: {
-          fontFamily: theme.fontFamilyCode,
-          fontSize: '1.2rem',
-          backgroundColor: theme.colours.backgroundHighlight,
-          padding: 2,
-        },
+      },
+      code: {
+        fontFamily: theme.fontFamilyCode,
+        fontSize: '1.2rem',
+        backgroundColor: theme.colours.backgroundHighlight,
+        padding: 2,
       },
       h1: {
         fontSize: '2.5rem',

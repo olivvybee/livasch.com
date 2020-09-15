@@ -27,7 +27,8 @@
     "react-dom": "16.13.1",
     "react-media": "^2.0.0-rc.1",
     "react-syntax-highlighter": "^13.5.3",
-    "remove-markdown": "^0.3.0"
+    "remove-markdown": "^0.3.0",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.161",

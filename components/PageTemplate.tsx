@@ -2,12 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 
 import siteConfig from '../siteconfig.json';
-import { getExcerpt } from '../utils/getExcerpt';
 
 import Header from './Header';
-import Main from './Main';
 import Footer from './Footer';
-import GlobalStyles from './GlobalStyles';
 import { Column, FlexibleSpacer, Row, Spacer } from './Layout';
 import { styled } from './Theming';
 import SkipLink from './SkipLink';
@@ -62,14 +59,13 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
           content={`${siteConfig.url}/apple-touch-icon.png`}
         />
       </Head>
-      <GlobalStyles />
 
       <SkipLink />
       <PageContainer>
         <Header />
         <Row>
           <Spacer width={16} />
-          <Main id='main-content'>{children}</Main>
+          <main id='main-content'>{children}</main>
           <Spacer width={16} />
         </Row>
         <FlexibleSpacer />

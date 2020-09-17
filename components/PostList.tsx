@@ -48,7 +48,7 @@ const PostList: React.FC<PostListProps> = ({
             </Column>
           </article>,
 
-          <hr />,
+          <hr key={`hr-${url}`} />,
         ];
       })}
     </Column>

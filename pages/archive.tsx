@@ -7,9 +7,10 @@ import { Post } from '../interfaces';
 import PageTemplate from '../components/PageTemplate';
 import { getAllPosts } from '../utils/getAllPosts';
 import { Spacer, Column, Row } from '../components/Layout';
-import { useTheme } from '../components/Theming';
 import Link from '../components/Link';
 import siteConfig from '../siteconfig.json';
+
+import styles from '../styles/Archive.module.scss';
 
 interface ArchiveProps {
   posts: Post[];
@@ -28,8 +29,6 @@ const Archive: React.FC<ArchiveProps> = ({ posts }) => {
     },
     {}
   );
-
-  const theme = useTheme();
 
   return (
     <PageTemplate
@@ -55,12 +54,7 @@ const Archive: React.FC<ArchiveProps> = ({ posts }) => {
                         ':not(:last-of-type)': { marginBottom: 12 },
                       }}>
                       <Row alignItems='flex-start'>
-                        <span
-                          css={{
-                            width: 80,
-                            color: theme.colours.textSecondary,
-                            flexShrink: 0,
-                          }}>
+                        <span className={styles.date}>
                           {moment(date).format('MMM DD')}
                         </span>
                         <div>

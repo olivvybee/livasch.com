@@ -5,14 +5,10 @@ import siteConfig from '../siteconfig.json';
 
 import Header from './Header';
 import Footer from './Footer';
-import { Column, FlexibleSpacer, Row, Spacer } from './Layout';
-import { styled } from './Theming';
+import { FlexibleSpacer, Row, Spacer } from './Layout';
 import SkipLink from './SkipLink';
 
-const PageContainer = styled(Column)({
-  minHeight: '100vh',
-});
-PageContainer.displayName = 'PageContainer';
+import styles from '../styles/PageTemplate.module.scss';
 
 interface PageTemplateProps {
   title?: string;
@@ -61,7 +57,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
       </Head>
 
       <SkipLink />
-      <PageContainer>
+      <div className={styles.container}>
         <Header />
         <Row>
           <Spacer width={16} />
@@ -70,7 +66,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
         </Row>
         <FlexibleSpacer />
         <Footer />
-      </PageContainer>
+      </div>
     </>
   );
 };

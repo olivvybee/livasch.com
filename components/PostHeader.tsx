@@ -1,8 +1,9 @@
 import moment from 'moment';
 
-import { useTheme } from './Theming';
 import { Column } from './Layout';
 import Link from './Link';
+
+import styles from '../styles/PostHeader.module.scss';
 
 interface PostHeaderProps {
   tag?: 'h1' | 'h2';
@@ -17,8 +18,6 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   date,
   url,
 }) => {
-  const theme = useTheme();
-
   const formattedDate = moment(date).format('LL');
 
   // const formattedTitle = tag === 'h2' ? <h2>{title}</h2> : <h1>{title}</h1>;
@@ -34,9 +33,7 @@ const PostHeader: React.FC<PostHeaderProps> = ({
   return (
     <Column gridGap={6}>
       {tag === 'h2' ? <h2>{formattedTitle}</h2> : <h1>{formattedTitle}</h1>}
-      <span css={{ color: theme.colours.textSecondary, fontSize: '1rem' }}>
-        {formattedDate}
-      </span>
+      <span className={styles.date}>{formattedDate}</span>
     </Column>
   );
 };

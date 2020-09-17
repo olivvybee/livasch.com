@@ -1,7 +1,6 @@
 import React from 'react';
 import { Row, FlexibleSpacer } from './Layout';
 import Link from './Link';
-import { useTheme } from './Theming';
 
 interface PaginationProps {
   newerPostsPageNumber?: number;
@@ -11,30 +10,26 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({
   newerPostsPageNumber,
   olderPostsPageNumber,
-}) => {
-  const theme = useTheme();
+}) => (
+  <Row
+    css={{
+      width: '100%',
+    }}>
+    {!!newerPostsPageNumber && (
+      <Link href='/page/[pageNumber]' as={`/page/${newerPostsPageNumber}`}>
+        ← Newer posts
+      </Link>
+    )}
 
-  return (
-    <Row
-      css={{
-        width: '100%',
-      }}>
-      {!!newerPostsPageNumber && (
-        <Link href='/page/[pageNumber]' as={`/page/${newerPostsPageNumber}`}>
-          ← Newer posts
-        </Link>
-      )}
+    <FlexibleSpacer />
 
-      <FlexibleSpacer />
-
-      {!!olderPostsPageNumber && (
-        <Link href='/page/[pageNumber]' as={`/page/${olderPostsPageNumber}`}>
-          Older posts →
-        </Link>
-      )}
-    </Row>
-  );
-};
+    {!!olderPostsPageNumber && (
+      <Link href='/page/[pageNumber]' as={`/page/${olderPostsPageNumber}`}>
+        Older posts →
+      </Link>
+    )}
+  </Row>
+);
 
 Pagination.displayName = 'Pagination';
 

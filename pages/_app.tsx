@@ -8,7 +8,7 @@ import 'moment/locale/en-gb';
 import '../styles/global.scss';
 
 import { ThemeProvider } from '../components/Theming';
-import LinkColoursContextProvider from '../components/LinkColours';
+import LinkColourRandomiser from '../components/LinkColourRandomiser';
 
 library.add(fas, fab);
 
@@ -16,11 +16,13 @@ moment.locale('en-gb');
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
-      <LinkColoursContextProvider>
+    <>
+      <LinkColourRandomiser />
+
+      <ThemeProvider>
         <Component {...pageProps} />
-      </LinkColoursContextProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </>
   );
 }
 

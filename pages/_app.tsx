@@ -8,7 +8,6 @@ import 'moment/locale/en-gb';
 import '../styles/Global.scss';
 import '../styles/SyntaxHighlighting.scss';
 
-import { ThemeProvider } from '../components/Theming';
 import LinkColourRandomiser from '../components/LinkColourRandomiser';
 
 library.add(fas, fab);
@@ -20,9 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <LinkColourRandomiser />
 
-      <ThemeProvider>
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <Component {...pageProps} />
     </>
   );
 }

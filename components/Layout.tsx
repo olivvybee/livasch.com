@@ -1,5 +1,5 @@
-import React, { CSSProperties } from 'react';
-import { styled } from './Theming';
+import { CSSProperties } from 'react';
+import styled from '@emotion/styled';
 
 interface FlexContainerProps {
   flexDirection?: CSSProperties['flexDirection'];

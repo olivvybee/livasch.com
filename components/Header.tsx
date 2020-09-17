@@ -2,25 +2,14 @@ import React from 'react';
 
 import siteConfig from '../siteconfig.json';
 
-import { styled } from './Theming';
 import Link from './Link';
 import { Row, FlexibleSpacer } from './Layout';
 
-const HeaderWrapper = styled('div')(({ theme }) => ({
-  backgroundColor: theme.colours.backgroundAccent,
-  padding: 16,
-}));
-HeaderWrapper.displayName = 'HeaderWrapper';
-
-const HeaderContent = styled('header')(({ theme }) => ({
-  maxWidth: theme.maxContentWidth,
-  margin: '0 auto',
-}));
-HeaderContent.displayName = 'HeaderContent';
+import styles from '../styles/Header.module.scss';
 
 const Header = () => (
-  <HeaderWrapper>
-    <HeaderContent>
+  <div className={styles.wrapper}>
+    <header className={styles.content}>
       <Row gridGap={16} alignItems='center' flexWrap='wrap' wrapSpacing={16}>
         <Row gridGap={12} alignItems='center'>
           <img
@@ -45,8 +34,8 @@ const Header = () => (
           <Link href='/archive'>Archive</Link>
         </Row>
       </Row>
-    </HeaderContent>
-  </HeaderWrapper>
+    </header>
+  </div>
 );
 
 Header.displayName = 'Header';

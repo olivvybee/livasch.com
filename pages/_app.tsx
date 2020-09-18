@@ -5,7 +5,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import moment from 'moment';
 import 'moment/locale/en-gb';
 
-import '../styles/Global.scss';
+import '../styles/GlobalStyles.scss';
 import '../styles/SyntaxHighlighting.scss';
 
 import LinkColourRandomiser from '../components/LinkColourRandomiser';

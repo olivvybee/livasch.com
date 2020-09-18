@@ -61,7 +61,9 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
         <Header />
         <Row>
           <Spacer width={16} />
-          <main id='main-content'>{children}</main>
+          <main id='main-content' className='main-content'>
+            {children}
+          </main>
           <Spacer width={16} />
         </Row>
         <FlexibleSpacer />

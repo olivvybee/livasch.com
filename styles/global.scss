@@ -89,7 +89,7 @@ a {
   }
 }
 
-main {
+.main-content {
   font-size: var(--font-size);
   line-height: var(--line-height);
   width: 100%;
@@ -128,7 +128,7 @@ main {
     margin-bottom: var(--content-spacing);
     border: none;
     height: 1px;
-    background: var(--rainbow)
+    background: var(--rainbow);
   }
 
   blockquote {
@@ -137,7 +137,7 @@ main {
     padding: 16px;
     padding-left: 32px;
     background: var(--background-highlight);
-    
+
     &::before {
       content: '';
       background: var(--rainbow-rotated);
@@ -176,7 +176,8 @@ main {
   li {
     margin-bottom: var(--content-spacing);
 
-    ul, ol {
+    ul,
+    ol {
       margin-top: 1rem;
     }
 

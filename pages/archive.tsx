@@ -45,14 +45,9 @@ const Archive: React.FC<ArchiveProps> = ({ posts }) => {
             .map(([year, posts]) => (
               <Column gridGap={16} key={year}>
                 <h2>{year}</h2>
-                <ul css={{ paddingLeft: 0 }} role='list'>
+                <ul style={{ paddingLeft: 0 }} role='list'>
                   {posts.map(({ title, date, url }) => (
-                    <li
-                      key={url}
-                      css={{
-                        '::before': { display: 'none' },
-                        ':not(:last-of-type)': { marginBottom: 12 },
-                      }}>
+                    <li key={url} className={styles.posts}>
                       <Row alignItems='flex-start'>
                         <span className={styles.date}>
                           {moment(date).format('MMM DD')}

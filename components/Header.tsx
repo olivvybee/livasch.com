@@ -19,7 +19,7 @@ const Header = () => (
             alt='A red hair bow tilted at an angle'
           />
           <Link href='/'>
-            <span css={{ fontSize: '2rem', fontWeight: 'bold' }}>
+            <span style={{ fontSize: '2rem', fontWeight: 'bold' }}>
               {siteConfig.title}
             </span>
           </Link>

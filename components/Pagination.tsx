@@ -12,7 +12,7 @@ const Pagination: React.FC<PaginationProps> = ({
   olderPostsPageNumber,
 }) => (
   <Row
-    css={{
+    style={{
       width: '100%',
     }}>
     {!!newerPostsPageNumber && (

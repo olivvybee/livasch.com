@@ -38,7 +38,7 @@ const PostList: React.FC<PostListProps> = ({
               {!!rest && (
                 <>
                   <Spacer height={24} />
-                  <div css={{ width: 'max-content' }}>
+                  <div style={{ width: 'max-content' }}>
                     <Link href='/[...slug]' as={url}>
                       Read the rest →
                     </Link>

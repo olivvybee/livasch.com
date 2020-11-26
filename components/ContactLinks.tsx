@@ -24,7 +24,7 @@ const ContactLinks: React.FC<ContactLinksProps> = ({ links }) => (
       {links.map(({ name, url, icon, colour }) => (
         <li key={name}>
           <a href={url} target='_blank' className={styles.link}>
-            <Column alignItems='center' css={{ textAlign: 'center' }}>
+            <Column alignItems='center' style={{ textAlign: 'center' }}>
               <span className={styles.icon}>
                 <FontAwesomeIcon
                   icon={icon.split('-') as [IconPrefix, IconName]}

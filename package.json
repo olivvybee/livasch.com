@@ -20,7 +20,6 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "feed": "^4.2.1",
     "lodash": "^4.17.20",
-    "netlify-cms-app": "^2.12.20",
     "next": "9.5.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",

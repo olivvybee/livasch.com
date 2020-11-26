@@ -3,6 +3,11 @@ layout: article
 title: How to Set up Netlify CMS Previews with Next.js
 date: 2020-09-08T20:53:19.085Z
 ---
+
+> **Update: 25 November 2020**
+>
+> I have now removed Netlify CMS from my site because I realised it was overkill for a site I only update a few times a year. The information below still stands as a semi-useful tutorial.
+
 As part of [rebuilding my website to use Next.js and Netlify CMS](/2020/09/06/on-to-the-next-js-thing), I wanted to reuse components I made for [Next.js](https://nextjs.org) as the editor preview in [Netlify CMS](https://netlifycms.org). Unfortunately for me, I couldn't find any resources about how to do so.
 
 After lots of trial and error, I found a way to initialize the CMS as part of a Next.js page, so I was able to import other components to use as the preview. Here's how I did it. <!-- more -->

@@ -7,6 +7,7 @@ import 'moment/locale/en-gb';
 
 import '../styles/GlobalStyles.scss';
 import '../styles/SyntaxHighlighting.scss';
+import '../styles/PostElements.scss';
 
 import LinkColourRandomiser from '../components/LinkColourRandomiser';
 

@@ -3,3 +3,13 @@
   color: var(--text-secondary);
   flex-shrink: 0;
 }
+
+.posts {
+  &::before {
+    display: none !important;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 12;
+  }
+}

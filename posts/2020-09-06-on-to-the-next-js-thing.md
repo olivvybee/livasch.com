@@ -3,6 +3,11 @@ layout: article
 title: On to the Next(.js) Thing
 date: 2020-09-06T19:27:06.666Z
 ---
+
+> **Update: 25 November 2020**
+>
+> I have now removed Netlify CMS from my site because I realised it was overkill for a site I only update a few times a year. The story below is still mostly relevant.
+
 For my first post in almost two years, and to go along with the redesign I've just rolled out, here's the story of why and how I rebuilt this site from scratch on an entirely new technology stack. <!-- more -->
 
 ## The bad times

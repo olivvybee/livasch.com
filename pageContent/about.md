@@ -43,8 +43,7 @@ Most of my work is done in [React](https://reactjs.org) and
 ## The site
 
 This site is built using React and [Next.js](https://nextjs.org), and is hosted
-on [Netlify](https://netlify.com). Behind the scenes, the content is managed
-using [Netlify CMS](https://www.netlifycms.org). The entire site is open source
+on [Netlify](https://netlify.com). The entire site is open source
 so you can see how it's built on
 [Github](https://github.com/olivvysaur/livasch.com).
 

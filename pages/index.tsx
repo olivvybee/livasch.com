@@ -16,10 +16,6 @@ interface IndexProps {
 
 const Index: React.FC<IndexProps> = ({ posts, hasOlderPosts }) => (
   <>
-    <Head>
-      <script src='https://identity.netlify.com/v1/netlify-identity-widget.js'></script>
-    </Head>
-
     <PageTemplate>
       <ScreenReaderOnly>
         <h1>{siteConfig.title}</h1>
@@ -31,8 +27,6 @@ const Index: React.FC<IndexProps> = ({ posts, hasOlderPosts }) => (
         hasOlderPosts={hasOlderPosts}
       />
     </PageTemplate>
-
-    <script src='/scripts/netlify-identity.js'></script>
   </>
 );
 

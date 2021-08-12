@@ -21,7 +21,7 @@ const LINKS = [
   },
   {
     name: 'Twitter',
-    url: 'https://twitter.com/olivvysaur',
+    url: 'https://twitter.com/olivvybee',
     icon: 'fab-twitter',
     colour: '#55acee',
   },
@@ -33,19 +33,19 @@ const LINKS = [
   },
   {
     name: 'Twitch',
-    url: 'https://twitch.tv/olivvysaur',
+    url: 'https://twitch.tv/olivvybee',
     icon: 'fab-twitch',
     colour: '#6441a4',
   },
   {
     name: 'Github',
-    url: 'https://github.com/olivvysaur',
+    url: 'https://github.com/olivvybee',
     icon: 'fab-github',
     colour: '#24292e',
   },
   {
     name: 'Buy me a coffee',
-    url: 'https://ko-fi.com/olivvysaur',
+    url: 'https://ko-fi.com/olivvybee',
     icon: 'fas-coffee',
     colour: '#ed6a65',
   },

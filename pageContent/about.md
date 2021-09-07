@@ -4,7 +4,7 @@ title: About
 
 # About
 
-I am Liv Asch, a software engineer based in Edinburgh, Scotland. You can also
+I am Liv Asch, a software engineer based in London, UK. You can also
 call me Livvy or Olivia, and my pronouns are she/her.
 
 Most of my work is done in [React](https://reactjs.org) and

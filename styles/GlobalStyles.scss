@@ -124,6 +124,13 @@ a {
     max-width: 100%;
   }
 
+  video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    margin-bottom: var(--content-spacing);
+  }
+
   hr {
     margin-bottom: var(--content-spacing);
     border: none;

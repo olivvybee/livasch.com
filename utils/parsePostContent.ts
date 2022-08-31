@@ -16,6 +16,7 @@ export const parsePostContent = (content: any, slug?: string) => {
     title: data.data.title,
     date: moment(data.data.date).toISOString(),
     tags: data.data.tags || [],
+    hero: data.data.hero || '',
     body: data.content,
     url,
   };

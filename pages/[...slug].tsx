@@ -18,11 +18,15 @@ interface PostUrlQuery {
   [key: string]: string | string[];
 }
 
-const PostPage = ({ title, date, tags, body, url }: Post) => {
+const PostPage = ({ title, date, hero, body, url }: Post) => {
   const description = getExcerpt({ body, maxWordCount: 50 });
 
   return (
-    <PageTemplate title={title} description={description} url={url}>
+    <PageTemplate
+      title={title}
+      description={description}
+      heroImage={hero}
+      url={url}>
       <Column>
         <PostHeader title={title} date={date} />
         <Spacer height={24} />

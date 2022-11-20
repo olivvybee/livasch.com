@@ -26,6 +26,13 @@ const LINKS = [
     colour: '#55acee',
   },
   {
+    name: 'Mastodon',
+    url: 'https://tech.lgbt/@olivvybee',
+    icon: 'fab-mastodon',
+    colour: '#6364ff',
+    verificationTag: true,
+  },
+  {
     name: 'Instagram',
     url: 'https://www.instagram.com/olivvysaur',
     icon: 'fab-instagram',
@@ -52,7 +59,7 @@ const LINKS = [
 ];
 
 const LinksPage = () => (
-  <PageTemplate title='Links'>
+  <PageTemplate title="Links">
     <h1>Links</h1>
     <p>These are all the places you can find me online.</p>
 

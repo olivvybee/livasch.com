@@ -17,19 +17,20 @@ const Footer = () => {
       <footer className={styles.content}>
         <Row
           gridGap={24}
-          justifyContent='space-between'
-          alignItems='center'
-          flexWrap='wrap'
-          wrapSpacing={8}>
+          justifyContent="space-between"
+          alignItems="center"
+          flexWrap="wrap"
+          wrapSpacing={8}
+        >
           <span>
             © {siteConfig.copyrightStart}–{year}{' '}
-            <Link href='/[slug]' as='/about'>
+            <Link href="/[slug]" as="/about">
               {siteConfig.author}
             </Link>
           </span>
 
           <Row gridGap={24}>
-            <Link href='/atom.xml'>RSS</Link>
+            <Link href="/atom.xml">RSS</Link>
 
             <Link href={`https://twitter.com/${siteConfig.siteTwitter}`}>
               @{siteConfig.siteTwitter}
@@ -38,6 +39,13 @@ const Footer = () => {
 
           <BackToTopButton />
         </Row>
+        <a
+          className={styles.hiddenLink}
+          href="https://tech.lgbt/@olivvybee"
+          rel="me"
+        >
+          Mastodon
+        </a>
       </footer>
     </div>
   );

@@ -14,18 +14,6 @@ const LINKS = [
     colour: '#e7504b',
   },
   {
-    name: 'Etsy store',
-    url: 'https://olivvycraft.etsy.com',
-    icon: 'fab-etsy',
-    colour: '#f56400',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/olivvybee',
-    icon: 'fab-twitter',
-    colour: '#55acee',
-  },
-  {
     name: 'Mastodon',
     url: 'https://tech.lgbt/@olivvybee',
     icon: 'fab-mastodon',
@@ -33,10 +21,10 @@ const LINKS = [
     verificationTag: true,
   },
   {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/olivvysaur',
-    icon: 'fab-instagram',
-    colour: '#e1306c',
+    name: 'Github',
+    url: 'https://github.com/olivvybee',
+    icon: 'fab-github',
+    colour: '#24292e',
   },
   {
     name: 'Twitch',
@@ -45,10 +33,10 @@ const LINKS = [
     colour: '#6441a4',
   },
   {
-    name: 'Github',
-    url: 'https://github.com/olivvybee',
-    icon: 'fab-github',
-    colour: '#24292e',
+    name: 'Etsy store',
+    url: 'https://olivvycraft.etsy.com',
+    icon: 'fab-etsy',
+    colour: '#f56400',
   },
   {
     name: 'Buy me a coffee',
@@ -70,7 +58,6 @@ const LinksPage = () => (
             <span className={styles.icon}>
               <FontAwesomeIcon
                 icon={icon.split('-') as [IconPrefix, IconName]}
-                // size='2x'
               />
             </span>
             {name}

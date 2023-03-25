@@ -66,5 +66,6 @@ means you most likely have more tiles protected than your opponent.
 
 Don't forget, the whole point of Letterpress is to enjoy the time you spend
 playing it. There's no reason to even be competitive. You and a friend could
-just try and find all the words on the grid with
-[a certain theme](https://twitter.com/olivvysaur/status/282226813567131648).
+just try and find all the words on the grid with a certain theme.
+
+![A screenshot of the "words played" dialog at the end of a game of Letterpress. There are about 150 different words in the list, and they all end with "ing".](/img/2012-12-letterpress_ing.jpeg)

@@ -31,10 +31,6 @@ const Footer = () => {
 
           <Row gridGap={24}>
             <Link href="/atom.xml">RSS</Link>
-
-            <Link href={`https://twitter.com/${siteConfig.siteTwitter}`}>
-              @{siteConfig.siteTwitter}
-            </Link>
           </Row>
 
           <BackToTopButton />

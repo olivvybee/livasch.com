@@ -48,7 +48,6 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
           name="twitter:card"
           content={heroImageUrl ? 'summary_large_image' : 'summary'}
         />
-        <meta name="twitter:site" content={`@${siteConfig.siteTwitter}`} />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:url" content={fullUrl} />
